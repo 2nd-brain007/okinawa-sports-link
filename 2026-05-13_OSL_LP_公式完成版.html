@@ -169,11 +169,7 @@
             color: var(--navy);
         }
 
-        @media (max-width: 992px) {
-            .story-inner { flex-direction: column; gap: 40px; }
-            .story-left, .story-right { width: 100%; }
-            .story-title { font-size: 2.8rem; }
-        }
+
 
         /* --- Approach Section --- */
         .section-approach {
@@ -232,10 +228,7 @@
             line-height: 1.7;
             opacity: 0.8;
         }
-        @media (max-width: 992px) {
-            .grid-approach { grid-template-columns: 1fr; gap: 30px; }
-            .approach-header h2 { font-size: 2.8rem; }
-        }
+
 
         /* --- Scroll Guide --- */
         .scroll-guide {
@@ -384,14 +377,7 @@
             font-weight: 700;
         }
 
-        @media (max-width: 992px) {
-            .grid-flow { grid-template-columns: 1fr; gap: 30px; }
-            .flow-card { padding: 30px 20px; }
-            .faq-item { padding: 25px 30px; }
-            .faq-q { font-size: 1.1rem; }
-            .faq-a { font-size: 0.9rem; }
-            .section-flow, .section-faq { padding: 80px 0; }
-        }
+
 
         /* --- Gallery Section --- */
         .section-gallery {
@@ -441,14 +427,51 @@
             filter: grayscale(0%) brightness(100%);
         }
 
-        @media (max-width: 992px) {
-            .grid-gallery {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
+        /* --- Responsive Styles (Mobile & Tablet) --- */
+        @media (max-width: 1024px) {
+            header { padding: 20px 30px; }
+            .logo { font-size: 1rem; }
+            nav a { margin-left: 15px; font-size: 0.75rem; }
+
+            .hero { height: auto; flex-direction: column; }
+            .hero-left { width: 100%; padding: 80px 40px 40px; text-align: center; align-items: center; }
+            .hero-right { width: 100%; height: 400px; clip-path: none; }
+            .hero-title { font-size: 4.5rem; text-align: center; }
+
+            .projects-grid { grid-template-columns: 1fr; gap: 30px; }
+            .grid-approach { grid-template-columns: 1fr; gap: 30px; }
+            .grid-flow { grid-template-columns: 1fr; gap: 30px; }
+            .grid-gallery { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .gallery-item { height: 200px; }
+
+            .story-inner { flex-direction: column; gap: 40px; }
+            .story-left, .story-right { width: 100%; }
+            .story-title { font-size: 2.5rem; }
+
+            .section-projects, .section-story, .section-approach, .section-flow, .section-faq, .section-gallery {
+                padding: 80px 0;
             }
-            .gallery-item {
-                height: 180px;
-            }
+        }
+
+        @media (max-width: 480px) {
+            header { padding: 15px 20px; }
+            .logo { font-size: 0.9rem; letter-spacing: 1px; }
+            nav a { margin-left: 10px; font-size: 0.7rem; }
+
+            .hero-left { padding: 60px 20px 30px; }
+            .hero-title { font-size: 3rem; }
+            .hero-right { height: 280px; }
+
+            .story-title { font-size: 2rem; }
+            .approach-header h2 { font-size: 2.2rem; }
+            .flow-header h2 { font-size: 2.2rem; }
+            .faq-header h2 { font-size: 2.2rem; }
+            .gallery-header h2 { font-size: 2.2rem; }
+            
+            .container { padding: 0 20px; }
+            .faq-item { padding: 25px 20px; }
+            .faq-q { font-size: 1rem; }
+            .faq-a { font-size: 0.85rem; padding-left: 20px; }
         }
 
         /* --- Footer --- */
