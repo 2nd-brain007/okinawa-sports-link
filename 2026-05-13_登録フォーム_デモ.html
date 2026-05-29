@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTA Registration Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --accent-gold: #D4AF37;
+            --text-main: #ffffff;
+            --text-sub: #a0a0a0;
+            --emerald: #00d2ff;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            letter-spacing: 2px;
+        }
+
+        .form-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .field {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 12px;
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .payment-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .payment-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .payment-btn.active {
+            border-color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--accent-gold);
+            color: black;
+            border: none;
+            padding: 18px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.02);
+            filter: brightness(1.1);
+        }
+
+        .mock-id-preview {
+            margin-top: 50px;
+            padding: 20px;
+            border: 1px dashed var(--accent-gold);
+            border-radius: 15px;
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        .mock-id-preview p {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">HTA</div>
+            <div class="tagline">HIGHSAI TENNIS ASSOCIATION</div>
+        </div>
+
+        <div class="form-card">
+            <div class="field">
+                <label>Player Name (ID表示名)</label>
+                <input type="text" placeholder="例: JIRO_BRAIN">
+            </div>
+
+            <div class="field">
+                <label>Current Tier (ランク)</label>
+                <select>
+                    <option>BRONZE</option>
+                    <option>SILVER</option>
+                    <option>GOLD</option>
+                    <option>PLATINUM</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>ID Photo (写真アップロード)</label>
+                <input type="file">
+            </div>
+
+            <div class="field">
+                <label>Payment Selection</label>
+                <div class="payment-options">
+                    <div class="payment-btn active">
+                        <div style="font-size: 0.7rem;">ONLINE</div>
+                        <div style="font-weight: bold;">Stripe</div>
+                    </div>
+                    <div class="payment-btn">
+                        <div style="font-size: 0.7rem;">ON-SITE</div>
+                        <div style="font-weight: bold;">Square</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="submit-btn">公式プレイヤーとして登録</button>
+        </div>
+
+        <div class="mock-id-preview">
+            <p>※登録完了後、このプロフィールが<br>デジタルIDカードとして即時発行されます</p>
+        </div>
+    </div>
+
+    <script>
+        const btns = document.querySelectorAll('.payment-btn');
+        btns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

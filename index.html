@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OKINAWA SPORTS LINK | THE NEXUS OF SPORTS & FUTURE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Orbitron:wght@700;900&family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030303;
+            --accent: #D4AF37;
+            --accent-glow: rgba(212, 175, 55, 0.4);
+            --text: #ffffff;
+            --text-dim: #999;
+            --emerald: #008f8f;
+            --deep-blue: #001a1a;
+            --card-bg: rgba(20, 20, 20, 0.85);
+            --font-display: 'Orbitron', sans-serif;
+            --font-sans: 'Inter', 'Noto Sans JP', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #111; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+        /* --- Layout --- */
+        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+
+        /* --- Header --- */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: linear-gradient(180deg, rgba(3,3,3,0.8) 0%, transparent 100%);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #fff;
+            text-decoration: none;
+            transition: text-shadow 0.3s;
+        }
+        .logo:hover {
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        nav { display: flex; gap: 40px; }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+            opacity: 0.6;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            opacity: 1;
+            color: var(--accent);
+            text-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            filter: grayscale(20%) contrast(110%);
+            z-index: 0;
+            transform: scale(1.02);
+            animation: slowZoom 25s infinite alternate ease-in-out;
+        }
+
+        @keyframes slowZoom {
+            0% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(1.08) rotate(0.5deg); }
+        }
+
+        .hero-bg-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(3, 3, 3, 0.2) 0%, rgba(0, 0, 0, 1) 90%);
+            z-index: 1;
+        }
+
+        .hero-bg-accent {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            filter: blur(100px);
+            top: -200px;
+            right: -200px;
+            z-index: 2;
+            animation: float 20s infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100px, 100px); }
+        }
+
+        .hero-content {
+            z-index: 10;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 8vw;
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 25px;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            background: linear-gradient(180deg, #fff 30%, #999 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: var(--font-display);
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--accent);
+            letter-spacing: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        /* --- Section: Philosophy --- */
+        .section-phi {
+            padding: 180px 0;
+            position: relative;
+        }
+
+        .grid-phi {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .phi-text h2 {
+            font-size: 3rem;
+            line-height: 1.25;
+            margin-bottom: 40px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .phi-text p {
+            font-size: 1.15rem;
+            color: var(--text-dim);
+            font-weight: 300;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .phi-badge {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-family: var(--font-display);
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .phi-image-wrapper {
+            width: 100%;
+            height: 550px;
+            border-radius: 40px;
+            border: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+            transition: border-color 0.5s;
+        }
+
+        .phi-image-wrapper:hover {
+            border-color: var(--accent);
+        }
+
+        .phi-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(15%) brightness(85%);
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .phi-image-wrapper:hover .phi-img {
+            transform: scale(1.05);
+        }
+
+        .phi-img-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, transparent 50%, rgba(3,3,3,0.9) 100%);
+            pointer-events: none;
+        }
+
+        .phi-img-text {
+            position: absolute;
+            bottom: 40px; left: 40px;
+            color: var(--accent);
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.9);
+        }
+
+        /* --- Section: Projects (The Grid) --- */
+        .section-projects {
+            padding: 150px 0;
+            background-color: #050505;
+            position: relative;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 40px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 40px;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 30px 60px rgba(212, 175, 55, 0.1);
+            background: rgba(25, 25, 25, 0.9);
+        }
+
+        .card-large { grid-column: span 8; }
+        .card-small { grid-column: span 4; }
+
+        .project-card h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+        }
+
+        .project-card p {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .project-link {
+            font-family: var(--font-display);
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: auto;
+            transition: color 0.3s;
+        }
+        .project-link:hover {
+            color: #fff;
+        }
+
+        .project-link::after {
+            content: "→";
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .project-link::after {
+            transform: translateX(10px);
+        }
+
+        /* --- Section: Story --- */
+        .section-story {
+            padding: 160px 0;
+            background-color: #030303;
+            position: relative;
+            border-top: 1px solid rgba(255,255,255,0.02);
+        }
+
+        .grid-story {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 100px;
+            align-items: flex-start;
+        }
+
+        .story-header {
+            position: sticky;
+            top: 150px;
+        }
+
+        .story-header h2 {
+            font-size: 2.8rem;
+            line-height: 1.3;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 30px;
+            background: linear-gradient(180deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .story-line {
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(180deg, var(--accent) 0%, transparent 100%);
+            margin-top: 40px;
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .story-body {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .story-body p {
+            font-size: 1.15rem;
+            color: var(--text-dim);
+            font-weight: 300;
+            line-height: 1.9;
+        }
+
+        .story-body p strong {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .story-body blockquote {
+            border-left: 2px solid var(--accent);
+            padding-left: 30px;
+            margin: 20px 0;
+            font-size: 1.25rem;
+            color: #fff;
+            font-weight: 400;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        /* --- Section: Approach --- */
+        .section-approach {
+            padding: 140px 0;
+            background-color: #030303;
+            border-top: 1px solid rgba(255,255,255,0.02);
+            position: relative;
+        }
+
+        .approach-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .approach-header h2 {
+            font-size: 3rem;
+            line-height: 1.2;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-top: 20px;
+            background: linear-gradient(180deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .grid-approach {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .approach-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 30px;
+            padding: 50px 40px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .approach-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.2);
+            background: rgba(25, 25, 25, 0.9);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.05);
+        }
+
+        .approach-num {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            opacity: 0.15;
+            line-height: 1;
+            margin-bottom: 25px;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .approach-card:hover .approach-num {
+            opacity: 0.8;
+            transform: scale(1.05);
+            text-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .approach-card h4 {
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .approach-card p {
+            font-size: 1rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-approach {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .approach-card {
+                padding: 40px 30px;
+            }
+            .approach-header h2 {
+                font-size: 2.2rem;
+            }
+            .section-approach {
+                padding: 90px 0;
+            }
+        }
+
+        /* --- Scroll Guide --- */
+        .scroll-guide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 60px;
+            text-align: center;
+            opacity: 0.4;
+            transition: opacity 0.3s;
+        }
+        .scroll-guide:hover { opacity: 0.9; }
+        .scroll-guide-text {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-family: var(--font-display);
+            margin-bottom: 15px;
+        }
+        .scroll-guide-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(180deg, var(--accent) 0%, transparent 100%);
+            box-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        /* --- Section: Flow --- */
+        .section-flow {
+            padding: 140px 0;
+            background-color: #030303;
+            border-top: 1px solid rgba(255,255,255,0.02);
+            position: relative;
+        }
+        .flow-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        .flow-header h2 {
+            font-size: 3rem;
+            line-height: 1.2;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-top: 20px;
+            background: linear-gradient(180deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .grid-flow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .flow-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 24px;
+            padding: 40px 30px;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            display: flex;
+            flex-direction: column;
+        }
+        .flow-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.25);
+            background: rgba(25, 25, 25, 0.9);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+        .flow-step {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 900;
+            color: var(--accent);
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .flow-card h4 {
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+        .flow-card p {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* --- Section: FAQ --- */
+        .section-faq {
+            padding: 140px 0;
+            background-color: #050505;
+            border-top: 1px solid rgba(255,255,255,0.02);
+            position: relative;
+        }
+        .faq-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        .faq-header h2 {
+            font-size: 3rem;
+            line-height: 1.2;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-top: 20px;
+            background: linear-gradient(180deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 20px;
+            padding: 35px 40px;
+            transition: all 0.3s;
+        }
+        .faq-item:hover {
+            border-color: rgba(212, 175, 55, 0.15);
+            background: rgba(25, 25, 25, 0.85);
+        }
+        .faq-q {
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        .faq-q::before {
+            content: "Q";
+            color: var(--accent);
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+        .faq-a {
+            font-size: 1rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+            font-weight: 300;
+            padding-left: 30px;
+            position: relative;
+        }
+        .faq-a::before {
+            content: "A";
+            position: absolute;
+            left: 0; top: 0;
+            color: #fff;
+            font-family: var(--font-display);
+            font-weight: 900;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-flow { grid-template-columns: 1fr; gap: 30px; }
+            .flow-card { padding: 35px 25px; }
+            .faq-item { padding: 25px 30px; }
+            .faq-q { font-size: 1.1rem; }
+            .faq-a { font-size: 0.95rem; }
+            .section-flow, .section-faq { padding: 90px 0; }
+        }
+
+        /* --- Section: CTA --- */
+        .section-cta {
+            padding: 220px 0;
+            text-align: center;
+            background: linear-gradient(180deg, #050505 0%, #000 100%);
+            position: relative;
+        }
+
+        .cta-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 60px;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            font-family: var(--font-sans);
+        }
+
+        .btn-main {
+            display: inline-block;
+            padding: 25px 60px;
+            background: var(--accent);
+            color: #000;
+            text-decoration: none;
+            font-weight: 900;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            letter-spacing: 5px;
+            border-radius: 100px;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-main:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px var(--accent-glow);
+            background: #fff;
+        }
+
+        /* --- Section: Gallery --- */
+        .section-gallery {
+            padding: 140px 0;
+            background-color: #050505;
+            border-top: 1px solid rgba(255,255,255,0.02);
+            position: relative;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .gallery-header h2 {
+            font-size: 3rem;
+            line-height: 1.2;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-top: 20px;
+            background: linear-gradient(180deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 300px;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            border-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(212,175,55,0.15);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(10%) brightness(85%);
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.08);
+            filter: grayscale(0%) brightness(100%);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, transparent 60%, rgba(3,3,3,0.9) 100%);
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 0.4;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .gallery-item {
+                height: 200px;
+            }
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 100px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            background-color: #000;
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.3;
+            letter-spacing: 10px;
+            font-weight: 900;
+        }
+
+        .footer-copy {
+            font-size: 0.65rem;
+            color: #444;
+            letter-spacing: 2px;
+        }
+
+        /* --- Interactions: Reveal on Scroll --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1), transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .card-large, .card-small { grid-column: span 12; }
+            .grid-phi { grid-template-columns: 1fr; gap: 60px; }
+            .grid-story { grid-template-columns: 1fr; gap: 50px; }
+            .story-header { position: relative; top: 0; }
+            .story-header h2 { font-size: 2.2rem; }
+            .section-story { padding: 100px 0; }
+            .hero-title { font-size: 14vw; }
+            .phi-image-wrapper { height: 400px; }
+            .section-phi { padding: 100px 0; }
+            .section-projects { padding: 100px 0; }
+            .cta-title { font-size: 3.5rem; }
+            header { padding: 30px 40px; }
+            nav { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero-bg-accent"></div>
+
+<header>
+    <a href="#" class="logo">OKINAWA SPORTS LINK</a>
+    <nav>
+        <a href="#phi">Philosophy</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-bg-image" style="background-image: url('./osl_hero.png');"></div>
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-subtitle">Nexus of Passion</div>
+        <h1 class="hero-title">OSL<br>ORIGIN</h1>
+        <div class="hero-subtitle" style="letter-spacing: 5px; font-size: 0.8rem; margin-top: 20px;">Okinawa Sports Link.</div>
+    </div>
+</section>
+
+<div class="container">
+    <section class="section-phi reveal" id="phi">
+        <div class="grid-phi">
+            <div class="phi-text">
+                <span class="phi-badge">OUR PHILOSOPHY</span>
+                <h2>スポーツを通じて、<br>人と人とを結ぶ。<br>沖縄から広がるコミュニティの絆。</h2>
+                <p>
+                    スポーツは、単なる勝敗を競う競技ではありません。<br>
+                    それは立場や世代を超えて人と人とを繋ぎ、心を結びつける最強の共通言語です。
+                </p>
+                <p>
+                    プレイヤー同士の熱い絆、地域を包み込む熱狂、速度を超えた感動、そして挑戦を支えるパートナーシップ。<br>
+                    私たち Okinawa Sports Link は、沖縄のローカルからスポーツを通じてあらゆる「繋がり（Link）」をデザインし、共に高め合う未来を創り出します。
+                </p>
+                <p>
+                    テクノロジーや運営の仕組み化は、その温かい結びつきをより滑らかにし、長く持続させるための土台に過ぎません。私たちが本当に届けたいのは、スポーツを通じて人生が豊かになる「結びつき」そのものです。
+                </p>
+            </div>
+            <div class="phi-visual">
+                <div class="phi-image-wrapper">
+                    <img src="./okinawa_tropical_resort_vibe_1778646693311.png" alt="Okinawa Tropical Resort Vibe" class="phi-img">
+                    <div class="phi-img-overlay"></div>
+                    <div class="phi-img-text">CONNECTING PEOPLE</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-guide">
+            <div class="scroll-guide-text">OUR ORIGIN</div>
+            <div class="scroll-guide-line"></div>
+        </div>
+    </section>
+
+    <section class="section-story reveal" id="story">
+        <div class="container">
+            <div class="grid-story">
+                <div class="story-header">
+                    <span class="phi-badge">OUR ORIGIN</span>
+                    <h2>誰もが主人公になれる、<br>最高の瞬間をデザインする。</h2>
+                    <div class="story-line"></div>
+                </div>
+                <div class="story-body">
+                    <p>
+                        私たちがスポーツの現場で、ずっと胸を痛めていた光景があります。
+                    </p>
+                    <p>
+                        それは、トーナメントの一番のクライマックスであるはずの<strong>「決勝戦」</strong>の舞台です。
+                        朝から熱く戦ってきたはずの会場は、長い一日の終わりと共に静まり返り、敗退した選手たちはすでに帰路についている。ガラガラの観客席と、寂しげな静寂の中で行われる最後の戦い。
+                    </p>
+                    <blockquote>
+                        「一番素晴らしい戦いをしているはずなのに、最後がこんなに虚しくていいのだろうか」
+                    </blockquote>
+                    <p>
+                        私たちはその光景に、強い疑問を抱いていました。<br>
+                        決勝戦こそ、多くの仲間に囲まれ、鳴り響く歓声の中でプレイするべき、人生で最も輝く「最高の瞬間」であるべきです。勝者も敗者も、その場にいる全員が最後まで応援し合い、お互いの健闘を称え合える場所を作りたい。
+                    </p>
+                    <p>
+                        単に機械的にトーナメントを消化するのではなく、負けた後も「最後まで見届けたい」「あの空間に一緒にいたい」と全員が思える、温かいコミュニティの熱狂と人と人の結びつき（Link）。
+                    </p>
+                    <p>
+                        その強い想いから、<strong>Okinawa Sports Link（OSL）</strong>は誕生しました。<br>
+                        沖縄というローカルの温かさと強みを活かし、人と人の結びつき（Link）をテクノロジーの力でより滑らかに、より強固に支える。
+                        私たちはここ沖縄から、スポーツコミュニティの新しい未来をデザインしていきます。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-guide">
+            <div class="scroll-guide-text">OUR APPROACH</div>
+            <div class="scroll-guide-line"></div>
+        </div>
+    </section>
+
+    <section class="section-approach reveal" id="approach">
+        <div class="approach-header">
+            <span class="phi-badge">OUR APPROACH</span>
+            <h2>人と人を結び、熱狂を持続させる3つの約束。</h2>
+        </div>
+        <div class="grid-approach">
+            <div class="approach-card">
+                <div class="approach-num">01</div>
+                <h4>熱狂のプロデュース</h4>
+                <p>eスポーツが持つ演出やゲーミフィケーションの仕組みをスポーツに取り入れます。プレイヤーだけではなく、観客や敗者も「最後まで見届けたい、一緒に応援したい」と思える熱い空間を創り出します。</p>
+            </div>
+            <div class="approach-card">
+                <div class="approach-num">02</div>
+                <h4>コミュニティの可視化</h4>
+                <p>ランキングや共通IDのシステムを用いて、プレイヤー同士やファン、地域のショップ、学校が繋がれるインフラを作ります。その場限りの大会で終わらせず、日常から結びつき（Link）を感じられる関係性を育てます。</p>
+            </div>
+            <div class="approach-card">
+                <div class="approach-num">03</div>
+                <h4>100%スポーツに没頭できる環境</h4>
+                <p>AIやテクノロジーを用いて、イベント運営や事務手続きの無駄を徹底的に排除します。選手がプレイに、指導者が育成に、安定したサポートのもとで100%のエネルギーを注げる環境を整えます。</p>
+            </div>
+        </div>
+        <div class="scroll-guide">
+            <div class="scroll-guide-text">OUR ECOSYSTEM</div>
+            <div class="scroll-guide-line"></div>
+        </div>
+    </section>
+
+    <section class="section-projects reveal" id="projects">
+        <div class="projects-grid">
+            <div class="project-card card-large">
+                <div>
+                    <span class="phi-badge" style="border-color: #555; color: #777;">CORE PROJECT</span>
+                    <h3>Highsai Cup</h3>
+                    <p>テニスに、eスポーツの熱狂と興奮を。ゲーミフィケーションされたUIと圧倒的なプロデュースで、全ての参加者を物語の主人公へと変える次世代トーナメント。</p>
+                </div>
+                <a href="https://tally.so/r/44AYZr" target="_blank" class="project-link">VIEW CASE STUDY</a>
+            </div>
+            <div class="project-card card-small">
+                <div>
+                    <span class="phi-badge" style="border-color: #555; color: #777;">SYSTEM</span>
+                    <h3>HTA</h3>
+                    <p>Highsai Tennis Association. 独自のランキング、公式ID、そしてコミュニティ資産の可視化。公式プレイヤーとして登録し、ランキング戦へ参戦せよ。</p>
+                </div>
+                <a href="./2026-05-13_登録フォーム_デモ.html" class="project-link">ENROLL NOW</a>
+            </div>
+            <div class="project-card card-small">
+                <div>
+                    <span class="phi-badge" style="border-color: #555; color: #777;">CO-CREATION</span>
+                    <h3>Local & Brand Partnership</h3>
+                    <p>沖縄のスポーツショップ、指導者、教育機関（N高提携など）と連携し、地域から次世代アスリートを育てる温かいエコシステムを共創します。</p>
+                </div>
+                <a href="#contact" class="project-link">PARTNER WITH US</a>
+            </div>
+            <div class="project-card card-large">
+                <div>
+                    <span class="phi-badge" style="border-color: #555; color: #777;">TECHNOLOGY & DX</span>
+                    <h3>Smart Operations</h3>
+                    <p>AIやデータ技術による「運営の事務手続きゼロ化」を追求。主催者と参加者、双方が本来のスポーツを通じた繋がりに100%集中できる環境を作ります。</p>
+                </div>
+                <a href="#" class="project-link">LEARN MORE</a>
+            </div>
+        </div>
+        <div class="scroll-guide">
+            <div class="scroll-guide-text">GALLERY</div>
+            <div class="scroll-guide-line"></div>
+        </div>
+    </section>
+
+    <section class="section-gallery reveal" id="gallery">
+        <div class="gallery-header">
+            <span class="phi-badge">GALLERY</span>
+            <h2>その一瞬にある、熱狂と感動。</h2>
+        </div>
+        <div class="grid-gallery">
+            <div class="gallery-item">
+                <img src="./tie_break_kun1.PNG" alt="Tournament Moment 1" class="gallery-img">
+                <div class="gallery-overlay"></div>
+            </div>
+            <div class="gallery-item">
+                <img src="./tie_break_kun2.jpg" alt="Tournament Moment 2" class="gallery-img">
+                <div class="gallery-overlay"></div>
+            </div>
+            <div class="gallery-item">
+                <img src="./tie_break_kun3.jpg" alt="Tournament Moment 3" class="gallery-img">
+                <div class="gallery-overlay"></div>
+            </div>
+            <div class="gallery-item">
+                <img src="./tie_break_kun4.jpg" alt="Tournament Moment 4" class="gallery-img">
+                <div class="gallery-overlay"></div>
+            </div>
+        </div>
+        <div class="scroll-guide">
+            <div class="scroll-guide-text">THE FLOW</div>
+            <div class="scroll-guide-line"></div>
+        </div>
+    </section>
+
+    <section class="section-flow reveal" id="flow">
+        <div class="flow-header">
+            <span class="phi-badge">THE FLOW</span>
+            <h2>OSLを体験する4つのステップ。</h2>
+        </div>
+        <div class="grid-flow">
+            <div class="flow-card">
+                <div class="flow-step">Step 01</div>
+                <h4>プレイヤー登録</h4>
+                <p>HTAオンラインフォームから簡単登録。あなただけの公式プレイヤーID（デジタルIDカード）が即時発行されます。</p>
+            </div>
+            <div class="flow-card">
+                <div class="flow-step">Step 02</div>
+                <h4>イベントへのエントリー</h4>
+                <p>ハイサイカップなどの対象イベントへエントリー。Tallyを用いたスマートな決済（Stripe/Square）で手続きは瞬時に完了します。</p>
+            </div>
+            <div class="flow-card">
+                <div class="flow-step">Step 03</div>
+                <h4>現場チェックイン & プレイ</h4>
+                <p>大会当日は、発行されたIDカードを提示してスムーズにチェックイン。登録列に並ぶことなく、試合に100%没頭できます。</p>
+            </div>
+            <div class="flow-card">
+                <div class="flow-step">Step 04</div>
+                <h4>ランキング反映 & 繋がり</h4>
+                <p>試合結果はシステムへ即時反映され、公式ランキングが更新。仲間たちとデータや思い出を共有し、新しい「繋がり」が広がります。</p>
+            </div>
+        </div>
+        <div class="scroll-guide">
+            <div class="scroll-guide-text">FAQ</div>
+            <div class="scroll-guide-line"></div>
+        </div>
+    </section>
+
+    <section class="section-faq reveal" id="faq">
+        <div class="faq-header">
+            <span class="phi-badge">FAQ</span>
+            <h2>よくあるご質問。</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-q">HTA登録や大会へのエントリーは誰でもできますか？</div>
+                <div class="faq-a">はい。年齢やレベルを問わず、スポーツを愛するすべてのプレイヤーにご参加いただけます。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">現地（オンサイト）での決済にも対応していますか？</div>
+                <div class="faq-a">はい。オンラインでのStripe事前決済に加え、イベント当日はSquare端末を用いた各種クレジットカードや電子マネーでのオンサイト決済に対応しています。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">企業パートナーやアライアンス提携の相談はどこから行えばよいですか？</div>
+                <div class="faq-a">ページ下部の「CONTACT OSL」よりお気軽にお問い合わせください。地域振興、イベント協賛、DX支援など、スポーツを通じた価値共創のご相談を承っております。</div>
+            </div>
+        </div>
+        <div class="scroll-guide">
+            <div class="scroll-guide-text">CONTACT</div>
+            <div class="scroll-guide-line"></div>
+        </div>
+    </section>
+</div>
+
+<section class="section-cta reveal" id="contact">
+    <div class="container">
+        <h2 class="cta-title">Ready to<br>Link with Us?</h2>
+        <a href="mailto:contact@okinawasportslink.com" class="btn-main">CONTACT OSL</a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-logo">OKINAWA SPORTS LINK</div>
+    <div style="margin-bottom: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        <a href="./2026-05-13_HTA会員規約_ドラフト.md" style="color: #666; text-decoration: none; font-size: 0.75rem; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='#666'">HTA会員規約</a>
+        <span style="color: #333;">|</span>
+        <a href="#" style="color: #666; text-decoration: none; font-size: 0.75rem; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='#666'">特定商取引法に基づく表記</a>
+        <span style="color: #333;">|</span>
+        <a href="#" style="color: #666; text-decoration: none; font-size: 0.75rem; transition: color 0.3s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='#666'">プライバシーポリシー</a>
+    </div>
+    <p class="footer-copy">DESIGNED BY ANTIGRAVITY. &copy; 2026 OKINAWA SPORTS LINK. ALL RIGHTS RESERVED.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        reveals.forEach(reveal => observer.observe(reveal));
+    });
+</script>
+</body>
+</html>
