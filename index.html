@@ -33,8 +33,10 @@
             background-color: var(--bg);
             color: var(--text);
             font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         /* --- Custom Scrollbar --- */
@@ -839,6 +841,113 @@
             .cta-title { font-size: 3.5rem; }
             header { padding: 30px 40px; }
             nav { gap: 20px; }
+        }
+
+        @media (max-width: 480px) {
+            /* Header */
+            header {
+                padding: 15px 15px;
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+            }
+            .logo {
+                font-size: 0.85rem;
+                letter-spacing: 2px;
+                white-space: nowrap;
+            }
+            nav {
+                gap: 15px;
+            }
+            nav a {
+                font-size: 0.65rem;
+                letter-spacing: 1px;
+            }
+
+            /* Hero */
+            .hero {
+                padding: 0 20px;
+            }
+            .hero-title {
+                font-size: clamp(2.3rem, 11vw, 3.5rem);
+                line-height: 1.1;
+                margin-bottom: 15px;
+            }
+            .hero-subtitle {
+                font-size: 0.75rem;
+                letter-spacing: 5px;
+                margin-bottom: 25px;
+            }
+
+            /* Spacing & Section Titles */
+            .section-phi, .section-story, .section-approach, .section-projects, .section-flow, .section-faq, .section-gallery, .section-cta {
+                padding: 60px 0;
+            }
+            .phi-text h2, .story-header h2, .approach-header h2, .flow-header h2, .faq-header h2, .gallery-header h2, .cta-title {
+                font-size: clamp(1.6rem, 7vw, 2rem) !important;
+                line-height: 1.35 !important;
+                letter-spacing: -0.5px !important;
+            }
+
+            /* Paragraphs & Text Readability */
+            .phi-text p, .story-body p, .approach-card p, .flow-card p, .faq-a, .project-card p {
+                font-size: 0.92rem !important;
+                line-height: 1.85 !important;
+                color: #ccc !important;
+            }
+            .story-body blockquote {
+                font-size: 1.05rem !important;
+                line-height: 1.7 !important;
+                margin: 20px 0 !important;
+                padding-left: 20px !important;
+            }
+
+            /* Cards & Inner Spacing */
+            .project-card, .approach-card, .flow-card {
+                padding: 30px 20px !important;
+                border-radius: 20px !important;
+            }
+            .project-card h3 {
+                font-size: 1.4rem !important;
+            }
+            .project-card p, .approach-card p, .flow-card p {
+                margin-bottom: 25px !important;
+            }
+            .projects-grid {
+                gap: 20px !important;
+            }
+
+            /* FAQ List */
+            .faq-item {
+                padding: 25px 20px !important;
+                border-radius: 15px !important;
+            }
+            .faq-q {
+                font-size: 1.05rem !important;
+                line-height: 1.4 !important;
+            }
+            .faq-a {
+                font-size: 0.9rem !important;
+                line-height: 1.75 !important;
+                padding-left: 20px !important;
+            }
+
+            /* Gallery */
+            .grid-gallery {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+            }
+            .gallery-item {
+                height: 150px !important;
+                border-radius: 12px !important;
+            }
+
+            /* CTA & Buttons */
+            .btn-main {
+                padding: 18px 40px !important;
+                font-size: 0.85rem !important;
+                letter-spacing: 3px !important;
+            }
         }
     </style>
 </head>
