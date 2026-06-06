@@ -138,6 +138,26 @@
             flex-direction: column;
             gap: 25px;
         }
+        
+        .event-heading-en {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(3.5rem, 8vw, 6.5rem) !important;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+        .event-heading-jp {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+            font-weight: 900;
+            line-height: 1.4;
+            letter-spacing: 1px;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
         .story-title {
             font-family: 'Oswald', sans-serif;
             font-size: 3.5rem;
@@ -146,10 +166,14 @@
             margin-bottom: 20px;
         }
         .story-subtitle {
-            font-size: 1.1rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(0.85rem, 2vw, 1.1rem) !important;
             font-weight: 900;
             color: var(--primary);
-            letter-spacing: 3px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
         }
         .story-right p {
             font-size: 1rem;
@@ -448,7 +472,27 @@
 
             .story-inner { flex-direction: column; gap: 40px; }
             .story-left, .story-right { width: 100%; }
-            .story-title { font-size: 2.5rem; }
+            
+        .event-heading-en {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(3.5rem, 8vw, 6.5rem) !important;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+        .event-heading-jp {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+            font-weight: 900;
+            line-height: 1.4;
+            letter-spacing: 1px;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+        .story-title { font-size: 2.5rem; }
 
             .section-projects, .section-story, .section-approach, .section-flow, .section-faq, .section-gallery {
                 padding: 80px 0;
@@ -494,12 +538,6 @@
             .section-projects, .section-story, .section-approach, .section-flow, .section-faq, .section-gallery {
                 padding: 60px 0;
             }
-            .story-title, .approach-header h2, .flow-header h2, .faq-header h2, .gallery-header h2 {
-                font-size: clamp(1.6rem, 7vw, 2rem) !important;
-                line-height: 1.3 !important;
-                letter-spacing: -0.5px !important;
-            }
-
             /* Story Section */
             .story-right p {
                 font-size: 0.92rem !important;
@@ -618,7 +656,7 @@
         <div class="story-inner">
             <div class="story-left">
                 <span class="story-subtitle">OUR ORIGIN</span>
-                <h2 class="story-title">誰もが主人公になれる、<br>最高の瞬間をデザインする。</h2>
+                <h2 class="event-heading-jp">誰もが主人公になれる、<br>最高の瞬間をデザインする。</h2>
                 <div style="width: 60px; height: 3px; background: var(--accent); margin-top: 30px;"></div>
             </div>
             <div class="story-right">
@@ -656,7 +694,7 @@
 <section class="section-impact" id="impact" style="background: #ffffff; color: var(--navy); padding: 120px 0; text-align: center; position: relative;">
     <div class="container">
         <span class="story-subtitle" style="color: var(--primary); display:block; text-align:center;">BY THE NUMBERS</span>
-        <h2 style="font-family: 'Oswald', sans-serif; font-size: 3.5rem; text-transform: uppercase; margin-bottom: 80px; letter-spacing: 2px;">The Impact</h2>
+        <h2 class="event-heading-en" style="text-align: center; margin-bottom: 60px;">The Impact</h2>
         
         <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 80px;">
             <div class="stat-item" style="text-align: center;">
@@ -729,7 +767,7 @@
     <div class="container">
         <div class="approach-header">
             <span class="story-subtitle">THE ENGINE</span>
-            <h2 class="approach-title">熱狂を生み出し、人を惹きつける3つの仕掛け。</h2>
+            <h2 class="event-heading-jp">熱狂を生み出し、人を惹きつける3つの仕掛け。</h2>
         </div>
         <div class="grid-approach">
             <div class="approach-card">
@@ -758,7 +796,7 @@
 <section class="section-projects" id="projects">
     <div class="container">
         <span class="story-subtitle" style="display:block; text-align:center;">OUR PROJECTS</span>
-        <h2 style="font-family: 'Oswald', sans-serif; font-size: 3.5rem; text-transform: uppercase; margin-bottom: 60px; text-align:center;">The OSL Ecosystem</h2>
+        <h2 class="event-heading-en" style="text-align: center; margin-bottom: 60px;">The OSL Ecosystem</h2>
         <div class="projects-grid">
             <div class="news-card">
                 <div style="height: 200px; background: var(--navy); color: white; display: flex; align-items: center; justify-content: center; font-family: 'Oswald', sans-serif; font-size: 2rem;">HAISAI CUP</div>
@@ -826,7 +864,7 @@
     <div class="container">
         <div class="approach-header" style="text-align: center; margin-bottom: 60px;">
             <span class="story-subtitle" style="color: var(--primary);">THE RULES</span>
-            <h2 class="approach-title" style="color: var(--navy); font-family: 'Oswald', sans-serif; font-size: 3.5rem; text-transform: uppercase;">Extreme Formats</h2>
+            <h2 class="event-heading-en" style="text-align: center;">Extreme Formats</h2>
             <p style="margin-top: 20px; color: var(--navy); opacity: 0.8; max-width: 700px; margin-left: auto; margin-right: auto;">考える暇はない。番狂わせを生み出す、超短期決戦の狂ったルール設計。</p>
         </div>
         <div class="grid-approach" style="grid-template-columns: repeat(3, 1fr); gap: 30px;">
@@ -858,7 +896,7 @@
         <div class="story-inner" style="align-items: center;">
             <div class="story-left">
                 <span class="story-subtitle">LIVE COMMENTARY</span>
-                <h2 class="story-title" style="font-family: 'Oswald', sans-serif; font-size: 3.5rem; text-transform: uppercase; line-height: 1.1;">The Producer's<br>Desk</h2>
+                <h2 class="event-heading-en">The Producer's<br>Desk</h2>
                 <div style="width: 60px; height: 3px; background: var(--accent); margin-top: 30px;"></div>
             </div>
             <div class="story-right">
@@ -887,7 +925,7 @@
 <section class="section-manifesto" id="manifesto" style="background: var(--navy); color: white; padding: 120px 0; text-align: center; position: relative;">
     <div class="container">
         <span class="story-subtitle" style="color: var(--primary); display:block; text-align:center; margin-bottom: 10px;">WHO WE ARE LOOKING FOR</span>
-        <h2 style="font-family: 'Oswald', sans-serif; font-size: 3.5rem; text-transform: uppercase; margin-bottom: 50px; text-align:center;">Bring Your Passion.</h2>
+        <h2 class="event-heading-en" style="text-align: center; margin-bottom: 50px; color: white;">Bring Your Passion.</h2>
         
         <div style="max-width: 800px; margin: 0 auto; line-height: 2.2; font-size: 1.05rem; color: rgba(255,255,255,0.85);">
             <p style="margin-bottom: 30px;">
@@ -920,7 +958,7 @@
 <section class="section-sponsors" id="sponsors" style="background: #f9f9f9; padding: 80px 0; overflow: hidden; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
     <div class="container" style="text-align: center; margin-bottom: 40px;">
         <span class="story-subtitle" style="color: var(--navy); opacity: 0.6;">THE ALLIANCE</span>
-        <h2 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: var(--navy); text-transform: uppercase;">Official Partners</h2>
+        <h2 class="event-heading-en" style="text-align: center; margin-bottom: 50px;">Official Partners</h2>
     </div>
     
     <style>
@@ -998,7 +1036,7 @@
     <div class="container">
         <div class="gallery-header">
             <span class="story-subtitle">GALLERY</span>
-            <h2 class="approach-title">その一瞬にある、熱狂と感動。</h2>
+            <h2 class="event-heading-jp" style="text-align: center;">その一瞬にある、熱狂と感動。</h2>
         </div>
         <div class="grid-gallery">
             <div class="gallery-item">
@@ -1025,7 +1063,7 @@
     <div class="container">
         <div class="flow-header">
             <span class="story-subtitle">THE FLOW</span>
-            <h2 class="approach-title">OSLを体験する4つのステップ。</h2>
+            <h2 class="event-heading-jp" style="text-align: center;">OSLを体験する4つのステップ。</h2>
         </div>
         <div class="grid-flow">
             <div class="flow-card">
@@ -1060,7 +1098,7 @@
     <div class="container">
         <div class="faq-header">
             <span class="story-subtitle">FAQ</span>
-            <h2 class="approach-title">よくあるご質問。</h2>
+            <h2 class="event-heading-jp" style="text-align: center;">よくあるご質問。</h2>
         </div>
         <div class="faq-list">
             <div class="faq-item">
