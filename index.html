@@ -9,7 +9,7 @@
         :root {
             --primary: #00B2B2;
             --accent: #FF2D55;
-            --navy: #111111;
+            --navy: #0A192F;
             --white: #FFFFFF;
             --grey-bg: #F8F9FA;
         }
@@ -561,7 +561,9 @@
         }
 
         /* --- Footer --- */
-        footer { padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.7rem; color: #aaa; }
+        footer { padding: 60px 0; text-align: center; background: var(--navy); border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.7rem; color: rgba(255,255,255,0.5); }
+        footer a { color: rgba(255,255,255,0.7) !important; transition: opacity 0.3s; }
+        footer a:hover { opacity: 1; }
     </style>
 </head>
 <body class="loading">
@@ -651,29 +653,29 @@
     </div>
 </section>
 
-<section class="section-impact" id="impact" style="background: linear-gradient(135deg, var(--navy) 0%, #005C97 50%, #00B4DB 100%); color: white; padding: 120px 0; text-align: center; position: relative;">
+<section class="section-impact" id="impact" style="background: #ffffff; color: var(--navy); padding: 120px 0; text-align: center; position: relative;">
     <div class="container">
-        <span class="story-subtitle" style="color: rgba(255,255,255,0.8); display:block; text-align:center;">BY THE NUMBERS</span>
+        <span class="story-subtitle" style="color: var(--primary); display:block; text-align:center;">BY THE NUMBERS</span>
         <h2 style="font-family: 'Oswald', sans-serif; font-size: 3.5rem; text-transform: uppercase; margin-bottom: 80px; letter-spacing: 2px;">The Impact</h2>
         
         <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 80px;">
             <div class="stat-item" style="text-align: center;">
-                <div class="stat-number" data-target="7" style="font-family: 'Oswald', sans-serif; font-size: 6rem; font-weight: 700; color: white; line-height: 1; text-shadow: 0 4px 20px rgba(0, 180, 219, 0.6);">0</div>
-                <div class="stat-label" style="font-size: 1rem; letter-spacing: 3px; color: var(--accent); font-weight: 700; margin-top: 10px;">POINTS TO SURVIVE</div>
+                <div class="stat-number" data-target="7" style="font-family: 'Oswald', sans-serif; font-size: 6rem; font-weight: 700; color: var(--primary); line-height: 1;">0</div>
+                <div class="stat-label" style="font-size: 1rem; letter-spacing: 3px; color: var(--navy); font-weight: 700; margin-top: 10px;">POINTS TO SURVIVE</div>
             </div>
             <div class="stat-item" style="text-align: center;">
-                <div class="stat-number" data-target="0" style="font-family: 'Oswald', sans-serif; font-size: 6rem; font-weight: 700; color: white; line-height: 1; text-shadow: 0 4px 20px rgba(0, 180, 219, 0.6);">0</div>
-                <div class="stat-label" style="font-size: 1rem; letter-spacing: 3px; color: var(--accent); font-weight: 700; margin-top: 10px;">EXCUSES</div>
+                <div class="stat-number" data-target="0" style="font-family: 'Oswald', sans-serif; font-size: 6rem; font-weight: 700; color: var(--primary); line-height: 1;">0</div>
+                <div class="stat-label" style="font-size: 1rem; letter-spacing: 3px; color: var(--navy); font-weight: 700; margin-top: 10px;">EXCUSES</div>
             </div>
             <div class="stat-item" style="text-align: center;">
-                <div class="stat-number" data-target="2026" style="font-family: 'Oswald', sans-serif; font-size: 6rem; font-weight: 700; color: white; line-height: 1; text-shadow: 0 4px 20px rgba(0, 180, 219, 0.6);">0</div>
-                <div class="stat-label" style="font-size: 1rem; letter-spacing: 3px; color: var(--accent); font-weight: 700; margin-top: 10px;">THE REVOLUTION</div>
+                <div class="stat-number" data-target="2026" style="font-family: 'Oswald', sans-serif; font-size: 6rem; font-weight: 700; color: var(--primary); line-height: 1;">0</div>
+                <div class="stat-label" style="font-size: 1rem; letter-spacing: 3px; color: var(--navy); font-weight: 700; margin-top: 10px;">THE REVOLUTION</div>
             </div>
         </div>
         
-        <div class="scroll-guide" style="border-color: rgba(255,255,255,0.2); margin-top: 100px;">
-            <div class="scroll-guide-text" style="color: rgba(255,255,255,0.5);">OUR APPROACH</div>
-            <div class="scroll-guide-line" style="background: rgba(255,255,255,0.2);"></div>
+        <div class="scroll-guide" style="border-color: rgba(10, 25, 47, 0.1); margin-top: 100px;">
+            <div class="scroll-guide-text" style="color: var(--primary);">OUR APPROACH</div>
+            <div class="scroll-guide-line" style="background: var(--primary);"></div>
         </div>
     </div>
 
