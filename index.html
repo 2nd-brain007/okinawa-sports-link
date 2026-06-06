@@ -837,8 +837,85 @@
         </div>
         
         <div class="scroll-guide">
-            <div class="scroll-guide-text" style="color: rgba(255,255,255,0.5);">GALLERY</div>
+            <div class="scroll-guide-text" style="color: rgba(255,255,255,0.5);">THE ALLIANCE</div>
             <div class="scroll-guide-line" style="background: rgba(255,255,255,0.2);"></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-sponsors" id="sponsors" style="background: #f9f9f9; padding: 80px 0; overflow: hidden; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+    <div class="container" style="text-align: center; margin-bottom: 40px;">
+        <span class="story-subtitle" style="color: var(--navy); opacity: 0.6;">THE ALLIANCE</span>
+        <h2 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: var(--navy); text-transform: uppercase;">Official Partners</h2>
+    </div>
+    
+    <style>
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+        .sponsor-logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 80px;
+            margin: 0 20px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-family: 'Oswald', sans-serif;
+            color: #ccc;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+        .sponsor-logo:hover {
+            border-color: var(--accent);
+            color: var(--navy);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <!-- Set 1 -->
+            <div class="sponsor-logo">YOUR LOGO</div>
+            <div class="sponsor-logo">YOUR LOGO</div>
+            <div class="sponsor-logo">YOUR LOGO</div>
+            <div class="sponsor-logo">YOUR LOGO</div>
+            <div class="sponsor-logo">YOUR LOGO</div>
+            <div class="sponsor-logo">YOUR LOGO</div>
+            <!-- Set 2 (for seamless loop) -->
+            <div class="sponsor-logo">YOUR LOGO</div>
+            <div class="sponsor-logo">YOUR LOGO</div>
+            <div class="sponsor-logo">YOUR LOGO</div>
+            <div class="sponsor-logo">YOUR LOGO</div>
+            <div class="sponsor-logo">YOUR LOGO</div>
+            <div class="sponsor-logo">YOUR LOGO</div>
+        </div>
+    </div>
+    
+    <div class="container" style="text-align: center; margin-top: 50px;">
+        <a href="https://tally.so/r/44AYZr" style="font-size: 0.8rem; font-weight: 700; color: var(--navy); text-decoration: underline; letter-spacing: 1px;">BECOME A PARTNER →</a>
+        
+        <div class="scroll-guide" style="margin-top: 50px;">
+            <div class="scroll-guide-text">GALLERY</div>
+            <div class="scroll-guide-line"></div>
         </div>
     </div>
 </section>
