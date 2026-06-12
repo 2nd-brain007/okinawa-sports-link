@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Highsai Cup: Origin Story</title>
+    <title>Highsai Cup: Origin Story | Entry Form</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Oswald:wght@700&family=Noto+Sans+JP:wght@300;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -429,42 +429,6 @@
             filter: grayscale(0%) brightness(100%);
         }
 
-        /* --- Premium Experience Blocks --- */
-        .premium-feature-card {
-            background: var(--white);
-            padding: 50px 60px;
-            border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.04);
-            border-left: 6px solid var(--primary);
-            text-align: left;
-            transition: transform 0.3s ease;
-        }
-        .premium-feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-        }
-        .premium-feature-subtitle {
-            font-family: 'Oswald', sans-serif;
-            color: var(--primary);
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            display: block;
-            font-weight: 700;
-        }
-        .premium-feature-title {
-            font-size: 2rem;
-            color: var(--navy);
-            margin-bottom: 25px;
-            line-height: 1.4;
-        }
-        .premium-feature-desc {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            color: #555;
-            font-weight: 500;
-        }
-
         /* --- Responsive Styles (Mobile & Tablet) --- */
         @media (max-width: 1024px) {
             header { padding: 20px 30px; }
@@ -598,7 +562,176 @@
 
         /* --- Footer --- */
         footer { padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.7rem; color: #aaa; }
-    </style>
+    
+        /* --- Form Styles --- */
+        .form-section {
+            padding: 80px 0;
+            background: var(--grey-bg);
+            min-height: 100vh;
+        }
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .form-header h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            color: var(--navy);
+            line-height: 1.1;
+        }
+        .form-header p {
+            color: var(--primary);
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .form-group label span.required {
+            color: var(--accent);
+            margin-left: 5px;
+            font-size: 0.8rem;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+            background: var(--grey-bg);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(0, 178, 178, 0.1);
+        }
+        .radio-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        .radio-card {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: var(--white);
+        }
+        .radio-card:hover {
+            border-color: var(--primary);
+            background: rgba(0, 178, 178, 0.02);
+        }
+        .radio-card input[type="radio"] {
+            margin-right: 15px;
+            transform: scale(1.2);
+        }
+        .radio-card .plan-details {
+            flex: 1;
+        }
+        .radio-card .plan-price {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+        .radio-card .plan-name {
+            font-size: 0.95rem;
+            font-weight: 900;
+            color: var(--navy);
+        }
+        .radio-card.recommended {
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 178, 178, 0.1);
+        }
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background: var(--accent);
+            color: var(--white);
+            text-align: center;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 40px;
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 45, 85, 0.2);
+        }
+        .btn-submit:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        .checkbox-label input {
+            margin-top: 4px;
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+        
+        #success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        #success-message h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        #success-message p {
+            font-size: 1.1rem;
+            color: var(--navy);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+</style>
 </head>
 <body class="loading">
 
@@ -610,226 +743,140 @@
 <header>
     <div class="container">
         <div class="header-inner">
-            <div class="logo">HIGHSAI CUP</div>
+            <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">HIGHSAI CUP</a>
             <nav>
-                <a href="#experience">EXPERIENCE</a>
-                <a href="#plans">PLANS</a>
-                <a href="entry.html">ENTRY</a>
+                <a href="index.html#experience">EXPERIENCE</a>
+                <a href="index.html#plans">PLANS</a>
             </nav>
         </div>
     </div>
 </header>
 
-<section class="hero">
-    <div class="hero-left">
-        <h1 class="hero-title" style="font-size: 5.5rem;">
-            <span>ORIGIN</span>
-            STORY
-        </h1>
-        <p class="hero-sub" style="font-weight: 900; letter-spacing: 5px; color: var(--primary); margin-bottom: 30px;">2026.07.26 [SUN] @ OKINAWA</p>
-        <p style="max-width: 450px; font-size: 0.95rem; color: var(--navy); line-height: 1.8;">
-            沖縄から発信する、本物のプレミアムな非日常体験。<br>Highsai Cup: Origin Story 第0期生 100名限定エントリー開始。
-        </p>
-        <div style="margin-top: 40px;">
-            <a href="entry.html" style="display: inline-block; padding: 20px 40px; background: var(--accent); color: white; text-decoration: none; font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 2px; font-size: 1.1rem; transition: transform 0.3s; border-radius: 4px;">ENTER NOW →</a>
-        </div>
-    </div>
-    <div class="hero-right">
-        <div class="hero-img"></div>
-    </div>
-</section>
-
-<section style="padding: 100px 0; background: var(--grey-bg); text-align: center;">
-    <div class="container" style="max-width: 800px;">
-        <h2 style="font-family: 'Oswald', sans-serif; font-size: 3rem; color: var(--navy); margin-bottom: 20px;">NOT JUST A TOURNAMENT.</h2>
-        <div style="width: 60px; height: 3px; background: var(--accent); margin: 0 auto 40px;"></div>
-        <p style="font-size: 1.1rem; line-height: 1.8; color: #555; font-weight: 700;">
-            負けたら終わりのトーナメントではありません。<br>
-            eスポーツのような熱狂、プロによる直接指導、そして極上のリカバリー空間。<br>
-            沖縄から発信する、全く新しい「プレミアム・テニスフェス」の始まりです。
-        </p>
-    </div>
-</section>
-
-<section style="padding: 100px 0; background: var(--white); text-align: center;">
-    <div class="container" style="max-width: 800px;">
-        <span class="story-subtitle">0TH GEN PRIVILEGE</span>
-        <h2 style="font-family: 'Oswald', sans-serif; font-size: 3rem; color: var(--navy); margin-bottom: 20px;">第0期生（ファウンダー）の特権</h2>
-        <div style="width: 60px; height: 3px; background: var(--primary); margin: 0 auto 40px;"></div>
-        <div style="font-size: 1.05rem; line-height: 1.9; color: #444; text-align: left;">
-            <p style="margin-bottom: 20px;">本大会「Highsai Cup: Origin Story」は、私たち Okinawa Sports Link (OSL) が創り出す「全く新しいテニス・エコシステム（生態系）」の第1章となる大会です。</p>
-            
-            <p style="margin-bottom: 20px;">まだ誰も見たことのないこの伝説の始まりに、リスクを取って飛び込んでくれる最初の100名を、私たちは最大限の敬意を込めて<strong>「第0期生（ファウンダー）」</strong>と呼びます。</p>
-            
-            <div style="background: rgba(0, 178, 178, 0.05); border-left: 4px solid var(--primary); padding: 20px; border-radius: 4px; margin-top: 30px;">
-                <strong style="color: var(--accent);">第0期生としてエントリーされた皆様には、OSLへの初期貢献の証として、来年以降システムに導入されるOSL年間登録料（通常1,000〜2,000円）を【永久無料】とする特権を付与します。</strong>
-            </div>
-            
-            <div style="text-align: center; margin-top: 40px; padding-top: 40px; border-top: 1px solid #eee;">
-                <p style="font-size: 0.95rem; color: #666; margin-bottom: 15px;">「1回戦負け」の常識を壊す、OSLの壮大なビジョンとは？</p>
-                <a href="https://2nd-brain007.github.io/okinawa-sports-link/" target="_blank" style="display: inline-block; padding: 15px 30px; background: var(--navy); color: white; text-decoration: none; font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 1px; font-size: 0.95rem; border-radius: 4px; transition: opacity 0.3s;">READ OSL VISION →</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="experience" style="background: var(--grey-bg); padding-bottom: 100px;">
-    <div style="text-align: center; padding: 100px 0 60px;">
-        <span class="story-subtitle">THE 3 PREMIUM EXPERIENCES</span>
-        <h2 class="approach-title" style="font-family: 'Noto Sans JP', sans-serif; font-size: 2.5rem; letter-spacing: -1px; color: var(--navy);">本物の非日常を味わう、3つの熱狂体験。</h2>
-    </div>
-
-    <div class="container" style="max-width: 900px; display: flex; flex-direction: column; gap: 40px;">
-        <!-- Feature 01 -->
-        <div class="premium-feature-card">
-            <span class="premium-feature-subtitle">FEATURE 01 : ENDLESS MATCHING</span>
-            <h3 class="premium-feature-title">「負けたら終わり」の常識を破壊する。</h3>
-            <p class="premium-feature-desc">無限マッチング・システム『The Queue』。負けても即座に次の相手とコートへ。1日10〜15試合のタイブレークマッチを確約する、eスポーツのような圧倒的な回転率で、あなたの経験値を強制的に引き上げます。</p>
-        </div>
-
-        <!-- Feature 02 -->
-        <div class="premium-feature-card" style="border-left-color: var(--accent);">
-            <span class="premium-feature-subtitle" style="color: var(--accent);">FEATURE 02 : SPECIAL GUEST</span>
-            <h3 class="premium-feature-title">プロの頭脳を、あなたのベンチに。</h3>
-            <p class="premium-feature-desc">ただプロが来るだけではありません。山口柚希プロが本部で常時フィードバックを行うだけでなく、熱狂の団体戦・決勝ではプロが直接あなたのチームの「ベンチコーチ」として入り、勝つための戦術（勝負脳）を直接注入します。</p>
-        </div>
-
-        <!-- Feature 03 -->
-        <div class="premium-feature-card" style="border-left-color: var(--navy);">
-            <span class="premium-feature-subtitle" style="color: var(--navy);">FEATURE 03 : RECOVERY LOUNGE</span>
-            <h3 class="premium-feature-title">極上の回復が、次の勝利を創る。</h3>
-            <p class="premium-feature-desc">大会期間中、常に併設される「リカバリーラウンジ」。ウェルカムドリンク『Triple Water』で脳と身体を潤し、専門家によるマッサージとピラティス・セッションをいつでも受けられます。試合の合間の「極上の回復」が、次の勝利を引き出します。</p>
-        </div>
-    </div>
-    
-    <div class="scroll-guide" style="padding: 60px 0; background: var(--white);">
-        <div class="scroll-guide-text">TIMETABLE & OUTLINE</div>
-        <div class="scroll-guide-line"></div>
-    </div>
-</section>
-
-<section style="padding: 100px 0; background: var(--grey-bg);">
-    <div class="container" style="max-width: 800px;">
-        <div style="text-align: center; margin-bottom: 50px;">
-            <span class="story-subtitle">SCHEDULE</span>
-            <h2 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: var(--navy);">TIMETABLE</h2>
-            <div style="width: 40px; height: 3px; background: var(--primary); margin: 15px auto 0;"></div>
-        </div>
-        
-        <div style="background: var(--white); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 40px; margin-bottom: 80px;">
-            <div style="display: flex; padding: 20px 0; border-bottom: 1px solid #eee;">
-                <div style="font-family: 'Oswald', sans-serif; font-size: 1.2rem; color: var(--primary); width: 120px; font-weight: 700;">08:30</div>
-                <div style="flex: 1; font-weight: 700; color: var(--navy);">受付開始 & ウォーミングアップ<br><span style="font-size: 0.85rem; color: #888; font-weight: normal;">ウェルカムドリンク「Triple Water」をお渡しします。</span></div>
-            </div>
-            <div style="display: flex; padding: 20px 0; border-bottom: 1px solid #eee;">
-                <div style="font-family: 'Oswald', sans-serif; font-size: 1.2rem; color: var(--primary); width: 120px; font-weight: 700;">09:00 - 13:00</div>
-                <div style="flex: 1; font-weight: 700; color: var(--navy);">タイブレークマッチ（無限マッチング）<br><span style="font-size: 0.85rem; color: #888; font-weight: normal;">負けてもすぐに次の試合が組まれるシステム。終了後は本部で山口プロから直接フィードバック。</span></div>
-            </div>
-            <div style="display: flex; padding: 20px 0; border-bottom: 1px solid #eee;">
-                <div style="font-family: 'Oswald', sans-serif; font-size: 1.2rem; color: var(--primary); width: 120px; font-weight: 700;">13:00 - 16:00</div>
-                <div style="flex: 1; font-weight: 700; color: var(--navy);">熱狂のチーム対抗戦（団体戦）<br><span style="font-size: 0.85rem; color: #888; font-weight: normal;">即席のチームを組み団体戦。上位2チームの決勝では、プロが両軍のベンチコーチとして戦術を指示します。</span></div>
-            </div>
-            <div style="display: flex; padding: 20px 0;">
-                <div style="font-family: 'Oswald', sans-serif; font-size: 1.2rem; color: var(--primary); width: 120px; font-weight: 700;">16:00 - 18:00</div>
-                <div style="flex: 1; font-weight: 700; color: var(--navy);">リカバリー＆フィジカルセッション<br><span style="font-size: 0.85rem; color: #888; font-weight: normal;">テニスの他に、ピラティスや専門トレーニングを実施。極上のリカバリー体験を提供します。</span></div>
-            </div>
-            
-            <div style="margin-top: 20px; padding: 20px; background: rgba(0, 178, 178, 0.05); border-left: 4px solid var(--primary); border-radius: 4px; font-size: 0.95rem; color: var(--navy); font-weight: 700;">
-                ★ 09:00〜18:00の大会期間中は常時「リカバリーラウンジ」がオープンしています。タイブレークマッチや団体戦の合間に、専門家によるマッサージを必ずご体験ください。
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-bottom: 50px;">
-            <span class="story-subtitle">INFORMATION</span>
-            <h2 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: var(--navy);">EVENT OUTLINE</h2>
-            <div style="width: 40px; height: 3px; background: var(--primary); margin: 15px auto 0;"></div>
-        </div>
-
-        <div style="background: var(--white); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 40px;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
-                <tr>
-                    <td style="padding: 15px 0; border-bottom: 1px solid #eee; width: 30%; font-weight: 700; color: var(--navy);">大会名称</td>
-                    <td style="padding: 15px 0; border-bottom: 1px solid #eee; color: #555;">Highsai Cup: Origin Story（ハイサイカップ）</td>
-                </tr>
-                <tr>
-                    <td style="padding: 15px 0; border-bottom: 1px solid #eee; font-weight: 700; color: var(--navy);">開催日時</td>
-                    <td style="padding: 15px 0; border-bottom: 1px solid #eee; color: #555;">2026年7月26日（日） 09:00 - 18:00</td>
-                </tr>
-                <tr>
-                    <td style="padding: 15px 0; border-bottom: 1px solid #eee; font-weight: 700; color: var(--navy);">開催場所</td>
-                    <td style="padding: 15px 0; border-bottom: 1px solid #eee; color: #555;">沖縄県総合運動公園（県総）テニスコート 9〜12番</td>
-                </tr>
-                <tr>
-                    <td style="padding: 15px 0; border-bottom: 1px solid #eee; font-weight: 700; color: var(--navy);">定員</td>
-                    <td style="padding: 15px 0; border-bottom: 1px solid #eee; color: #555;"><strong style="color: var(--accent);">先着100名限定</strong></td>
-                </tr>
-                <tr>
-                    <td style="padding: 15px 0; font-weight: 700; color: var(--navy);">特別ゲスト</td>
-                    <td style="padding: 15px 0; color: #555;">山口柚希 プロ</td>
-                </tr>
-            </table>
-        </div>
-        
-        <div class="scroll-guide" style="margin-top: 80px;">
-            <div class="scroll-guide-text">PREMIUM PLANS</div>
-            <div class="scroll-guide-line"></div>
-        </div>
-    </div>
-</section>
-
-<section class="section-approach" id="plans">
+<section class="form-section">
     <div class="container">
-        <div class="approach-header">
-            <span class="story-subtitle">PREMIUM PLANS</span>
-            <h2 class="approach-title" style="font-family: 'Noto Sans JP', sans-serif; font-size: 2.5rem; letter-spacing: -1px;">あなたに合わせた3つの参加プラン。</h2>
-        </div>
-        <div class="grid-approach">
-            <div class="approach-card">
-                <div class="approach-num" style="color: var(--navy); opacity: 1;">¥6,000</div>
-                <h4>タイブレーク＆団体戦</h4>
-                <p style="margin-bottom: 10px;">✓ 無限マッチング参加権</p>
-                <p style="margin-bottom: 10px;">✓ チーム対抗戦エントリー</p>
-                <p>✓ 本部プロフィードバック</p>
+        <div class="form-container">
+            <div class="form-header" id="form-header">
+                <h2>ENTRY FORM</h2>
+                <p>HIGHSAI CUP: ORIGIN STORY エントリーフォーム</p>
+                <div style="width: 40px; height: 3px; background: var(--accent); margin: 20px auto 0;"></div>
             </div>
-            <div class="approach-card">
-                <div class="approach-num" style="color: var(--navy); opacity: 1;">¥8,000</div>
-                <h4>プロレッスン＆ピラティス</h4>
-                <p style="margin-bottom: 10px;">✓ 山口プロによる特別レッスン</p>
-                <p style="margin-bottom: 10px;">✓ ピラティス/トレーニング参加権</p>
-                <p>✓ リカバリーラウンジ利用</p>
+
+            <div id="success-message">
+                <h3>ENTRY COMPLETE</h3>
+                <p>HIGHSAI CUP: ORIGIN STORY へのエントリーが完了しました！<br><br>ご入力いただいたメールアドレス宛に、当日の受付および決済に関するご案内をお送りしましたので、必ずご確認ください。<br><span style="font-size: 0.85rem; color: #888;">（※メールが届かない場合は、迷惑メールフォルダもご確認ください）</span></p>
+                <a href="index.html" style="display: inline-block; padding: 15px 40px; background: var(--navy); color: white; text-decoration: none; font-family: 'Oswald', sans-serif; letter-spacing: 1px; border-radius: 4px;">トップページへ戻る</a>
             </div>
-            <div class="approach-card" style="border-color: var(--primary); transform: scale(1.05); box-shadow: 0 10px 40px rgba(0, 178, 178, 0.2);">
-                <div style="background: var(--primary); color: white; font-size: 0.75rem; font-weight: 900; padding: 4px 12px; display: inline-block; margin-bottom: 20px; border-radius: 4px; font-family: 'Oswald', sans-serif; letter-spacing: 1px;">RECOMMENDED</div>
-                <div class="approach-num" style="color: var(--primary); opacity: 1;">¥10,000</div>
-                <h4>フルパッケージ</h4>
-                <p style="margin-bottom: 10px;">✓ 試合・レッスン両方に参加可能</p>
-                <p style="margin-bottom: 10px;">✓ 特別Vlog撮影優先参加</p>
-                <p>✓ シークレット特典</p>
-            </div>
+
+            <form id="entry-form">
+                <!-- Step 1: 基本情報 -->
+                <div style="margin-bottom: 40px;">
+                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; margin-bottom: 20px; color: var(--primary); border-bottom: 1px solid #eee; padding-bottom: 10px;">01. BASIC INFO</h3>
+                    
+                    <div class="form-group">
+                        <label>氏名 (Full Name) <span class="required">必須</span></label>
+                        <input type="text" name="name" required placeholder="例: 沖縄 太郎">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>プレイヤーネーム (Handle Name) <span class="required">必須</span></label>
+                        <p style="font-size: 0.75rem; color: #888; margin-top: -5px; margin-bottom: 8px;">大会でのMCコールや、ランキング等に表示される「公の名前」です。</p>
+                        <input type="text" name="player_name" required placeholder="例: TARO_OKINAWA">
+                    </div>
+
+                    <div class="form-group">
+                        <label>メールアドレス (Email) <span class="required">必須</span></label>
+                        <input type="email" name="email" required placeholder="例: taro@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>電話番号 (Phone) <span class="required">必須</span></label>
+                        <input type="tel" name="phone" required placeholder="例: 090-1234-5678">
+                    </div>
+                </div>
+
+                <!-- Step 2: 選手プロフィール -->
+                <div style="margin-bottom: 40px;">
+                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; margin-bottom: 20px; color: var(--primary); border-bottom: 1px solid #eee; padding-bottom: 10px;">02. PLAYER PROFILE</h3>
+                    
+                    <div class="form-group">
+                        <label>所属クラブ / 活動拠点 <span class="required">必須</span></label>
+                        <input type="text" name="club" required placeholder="例: OSLテニスクラブ">
+                    </div>
+
+                    <div class="form-group">
+                        <label>プレースタイル <span class="required">必須</span></label>
+                        <p style="font-size: 0.75rem; color: #888; margin-top: -5px; margin-bottom: 8px;">団体戦に向けて、あなたのスタイル（シングルス派、ダブルス前衛/後衛など）を教えてください。</p>
+                        <input type="text" name="play_style" required placeholder="例: ゴリゴリのストローカー（シングルス派）">
+                    </div>
+
+                    <div class="form-group">
+                        <label>あなたの「武器」や「必殺技」</label>
+                        <p style="font-size: 0.75rem; color: #888; margin-top: -5px; margin-bottom: 8px;">大会中の実況や、山口プロのYouTube動画内で紹介される可能性があります！</p>
+                        <textarea name="weapon" rows="3" placeholder="例: 逆クロスへのジャックナイフ"></textarea>
+                    </div>
+                </div>
+
+                <!-- Step 3: プランと決済 -->
+                <div style="margin-bottom: 40px;">
+                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; margin-bottom: 20px; color: var(--primary); border-bottom: 1px solid #eee; padding-bottom: 10px;">03. PLAN & PAYMENT</h3>
+                    
+                    <div class="form-group">
+                        <label>参加プランの選択 <span class="required">必須</span></label>
+                        <div class="radio-group">
+                            <label class="radio-card">
+                                <input type="radio" name="plan" value="6000" required>
+                                <div class="plan-details">
+                                    <div class="plan-name">タイブレークマッチ＆団体戦プラン</div>
+                                </div>
+                                <div class="plan-price">¥6,000</div>
+                            </label>
+                            
+                            <label class="radio-card">
+                                <input type="radio" name="plan" value="8000">
+                                <div class="plan-details">
+                                    <div class="plan-name">プロレッスン＆ピラティスプラン</div>
+                                </div>
+                                <div class="plan-price">¥8,000</div>
+                            </label>
+
+                            <label class="radio-card recommended">
+                                <input type="radio" name="plan" value="10000">
+                                <div class="plan-details">
+                                    <span style="background: var(--primary); color: white; font-size: 0.65rem; padding: 2px 8px; border-radius: 4px; font-weight: 900; margin-bottom: 5px; display: inline-block;">RECOMMENDED</span>
+                                    <div class="plan-name">フルパッケージ（試合・レッスン全て込み）</div>
+                                </div>
+                                <div class="plan-price" style="color: var(--primary);">¥10,000</div>
+                            </label>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Step 4: 規約と署名 -->
+                <div style="margin-bottom: 40px;">
+                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; margin-bottom: 20px; color: var(--primary); border-bottom: 1px solid #eee; padding-bottom: 10px;">04. AGREEMENT</h3>
+                    
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="consent_sns" required>
+                        <span><strong>肖像権・メディア掲載に関する同意</strong><br>本大会では、公式カメラマンおよび山口柚希プロのYouTubeチャンネル等による写真・動画撮影が行われます。撮影された素材は、大会公式Webサイト、SNS、YouTube、および協賛企業の広報活動に使用されることに同意します。</span>
+                    </label>
+
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="consent_terms" required>
+                        <span><strong>大会参加規約および免責事項への同意</strong><br>本大会の趣旨を理解し、競技中の怪我や事故については自己責任とすることに同意します。</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtn">ENTRY - 申し込みを確定する</button>
+            </form>
         </div>
     </div>
 </section>
 
-<footer style="background: var(--navy); color: white; border-top: none;">
-    <div class="container">
-        <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 8px; max-width: 800px; margin: 0 auto 60px; border: 1px solid rgba(0, 178, 178, 0.3);">
-            <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.8rem; color: var(--primary); margin-bottom: 15px;">0TH GEN PRIVILEGE</h3>
-            <p style="font-size: 1rem; line-height: 1.8; font-weight: 700;">
-                今回エントリーいただいた100名は「第0期生（ファウンダー）」として正式登録されます。<br>
-                第0期生には、来年以降導入予定のOSL年間登録料が【永久無料】になる特別な特権が付与されます。伝説の始まりを目撃してください。
-            </p>
-        </div>
-        <h2 style="font-family: 'Oswald', sans-serif; font-size: 3rem; margin-bottom: 40px; text-transform: uppercase;">Ready to Join?</h2>
-        <a href="entry.html" style="display: inline-block; padding: 20px 60px; background: var(--accent); color: white; text-decoration: none; font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 2px; font-size: 1.2rem; transition: transform 0.3s; border-radius: 4px; margin-bottom: 80px;">ENTER NOW</a>
-        
-        <div style="margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <a href="#" style="color: #888; text-decoration: none; font-size: 0.75rem; font-weight: 700;">HTA会員規約</a>
-            <span style="color: #444;">|</span>
-            <a href="#" style="color: #888; text-decoration: none; font-size: 0.75rem; font-weight: 700;">特定商取引法に基づく表記</a>
-            <span style="color: #444;">|</span>
-            <a href="#" style="color: #888; text-decoration: none; font-size: 0.75rem; font-weight: 700;">プライバシーポリシー</a>
-        </div>
-        <p style="color: #666;">&copy; 2026 OKINAWA SPORTS LINK. ALL RIGHTS RESERVED.</p>
+<footer>
+    <div class="container" style="text-align: center; padding: 40px 0; font-size: 0.75rem; color: #888;">
+        <p>&copy; 2026 OKINAWA SPORTS LINK. ALL RIGHTS RESERVED.</p>
     </div>
 </footer>
 
@@ -837,7 +884,53 @@
     window.addEventListener('load', () => {
         setTimeout(() => {
             document.body.classList.add('loaded');
-        }, 1000);
+        }, 800);
+    });
+
+    // GAS Web App URL
+    const GAS_API_URL = 'https://script.google.com/macros/s/AKfycbwu3YYZcq1dUYSwSiFR_xxkUBbFFxmJUzesCZ-D4-X3NDiXFeqLr6vIQ1Quaild-p8C9w/exec';
+
+    const form = document.getElementById('entry-form');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('success-message');
+    const formHeader = document.getElementById('form-header');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        if (GAS_API_URL === 'YOUR_GAS_API_URL_HERE') {
+            alert('開発者用エラー: GAS_API_URLが設定されていません。GASのURLをセットしてください。');
+            return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.innerText = '送信中... PLEASE WAIT';
+
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch(GAS_API_URL, {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.status === 'success') {
+                form.style.display = 'none';
+                formHeader.style.display = 'none';
+                successMsg.style.display = 'block';
+                window.scrollTo(0, 0);
+            } else {
+                alert('通信エラーが発生しました。時間をおいて再度お試しください。\n' + result.message);
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'ENTRY - 申し込みを確定する';
+            }
+        } catch (error) {
+            alert('ネットワークエラーが発生しました。通信環境をご確認ください。');
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'ENTRY - 申し込みを確定する';
+        }
     });
 </script>
 
