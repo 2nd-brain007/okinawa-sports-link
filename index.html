@@ -110,6 +110,19 @@
         @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .ticker-item { margin-right: 50px; font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
 
+        /* --- Latest News Section --- */
+        .section-latest-news { padding: 80px 0; background: var(--white); border-bottom: 1px solid #eee; }
+        .news-list { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+        .news-item { display: flex; align-items: center; padding: 20px 0; border-bottom: 1px dashed #ddd; transition: all 0.3s; text-decoration: none; color: var(--navy); }
+        .news-item:hover { transform: translateX(10px); color: var(--primary); }
+        .news-date { font-family: 'Oswald', sans-serif; font-weight: 700; color: var(--accent); width: 120px; flex-shrink: 0; }
+        .news-category { background: var(--navy); color: white; font-size: 0.65rem; font-weight: 900; padding: 3px 10px; border-radius: 2px; margin-right: 20px; flex-shrink: 0; }
+        .news-title { font-size: 0.95rem; font-weight: 700; line-height: 1.5; }
+        @media (max-width: 768px) {
+            .news-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .news-date { width: auto; }
+        }
+
         /* --- Projects --- */
         .section-projects { padding: 120px 0; background: var(--grey-bg); }
         .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
@@ -494,7 +507,7 @@
         }
         .story-title { font-size: 2.5rem; }
 
-            .section-projects, .section-story, .section-approach, .section-flow, .section-faq, .section-gallery {
+            .section-projects, .section-latest-news, .section-story, .section-approach, .section-flow, .section-faq, .section-gallery {
                 padding: 80px 0;
             }
         }
@@ -535,7 +548,7 @@
             }
 
             /* Global Typography & Spacing */
-            .section-projects, .section-story, .section-approach, .section-flow, .section-faq, .section-gallery {
+            .section-projects, .section-latest-news, .section-story, .section-approach, .section-flow, .section-faq, .section-gallery {
                 padding: 60px 0;
             }
             /* Story Section */
@@ -650,6 +663,32 @@
         <span class="ticker-item">2026.05.12 | HAISAI LEAGUE SEASON SCHEDULE RELEASED</span>
     </div>
 </div>
+
+<section class="section-latest-news" id="news">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <span class="story-subtitle" style="display:block; text-align:center;">UPDATES</span>
+            <h2 class="event-heading-en" style="text-align: center; font-size: 3.5rem !important; margin-bottom: 0;">LATEST NEWS</h2>
+        </div>
+        <div class="news-list">
+            <a href="https://2nd-brain007.github.io/2nd-Brain/01_%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88/%E3%83%8F%E3%82%A4%E3%82%B5%E3%82%A4%E3%82%AB%E3%83%83%E3%83%97/osl-web-portal/index.html" class="news-item" target="_blank">
+                <div class="news-date">2026.06.12</div>
+                <div class="news-category" style="background: var(--accent);">TOURNAMENT</div>
+                <div class="news-title">Highsai Cup: Origin Story 第0期生（ファウンダー）100名限定エントリー開始！</div>
+            </a>
+            <a href="#" class="news-item">
+                <div class="news-date">2026.05.12</div>
+                <div class="news-category">LEAGUE</div>
+                <div class="news-title">Haisai League シーズンスケジュール公開のお知らせ</div>
+            </a>
+            <a href="#" class="news-item">
+                <div class="news-date">2026.05.10</div>
+                <div class="news-category">SYSTEM</div>
+                <div class="news-title">OSL公式プレイヤー登録（XPシステムβ版）の事前受付を開始</div>
+            </a>
+        </div>
+    </div>
+</section>
 
 <section class="section-story" id="story">
     <div class="container">
