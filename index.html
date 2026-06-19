@@ -695,6 +695,122 @@
     </div>
 </section>
 
+<style>
+    .step-section {
+        padding: 80px 0;
+        border-top: 1px solid #eee;
+    }
+    .step-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        padding: 0 40px;
+    }
+    .step-image {
+        width: 320px;
+        height: 320px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        flex-shrink: 0;
+    }
+    .step-content {
+        flex: 1;
+    }
+    .step-reverse {
+        flex-direction: row-reverse;
+        text-align: right;
+    }
+    @media (max-width: 768px) {
+        .step-inner {
+            flex-direction: column !important;
+            text-align: center !important;
+            gap: 30px;
+            padding: 0 20px;
+        }
+        .step-image {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1;
+        }
+        .step-content {
+            text-align: center !important;
+        }
+    }
+</style>
+
+<!-- Intro for How It Works -->
+<section style="padding: 100px 0 50px; background: var(--white);">
+    <div class="container" style="max-width: 800px; text-align: center;">
+        <span class="story-subtitle" style="color: var(--primary);">HOW IT WORKS</span>
+        <h2 style="font-family: 'Noto Sans JP', sans-serif; font-size: 2.5rem; letter-spacing: -1px; color: var(--navy); margin-top: 10px; margin-bottom: 20px;">結局、当日はどうやって楽しむの？</h2>
+        <div style="width: 60px; height: 3px; background: var(--accent); margin: 0 auto;"></div>
+        <p style="margin-top: 20px; font-size: 1.1rem; color: #666; font-weight: 700;">これまでの大会の常識を覆す、4つのシンプルなステップ</p>
+    </div>
+</section>
+
+<!-- STEP 01 -->
+<section class="step-section" style="background: var(--grey-bg);">
+    <div class="step-inner">
+        <img src="images/haisai_step1_endless_tennis_1781834179564.png" alt="1日中テニスし放題！" class="step-image">
+        <div class="step-content">
+            <span style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--primary); font-weight: 700; letter-spacing: 2px;">STEP 01</span>
+            <h3 style="font-size: 2rem; color: var(--navy); font-weight: 900; margin-bottom: 20px;">1日中テニスし放題！</h3>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">「1回戦負け」は存在しません。<br>負けても勝っても、システムがすぐに次の対戦相手を自動マッチング。待ち時間なしでひたすら試合を楽しめます。（タイブレーク形式）</p>
+        </div>
+    </div>
+</section>
+
+<!-- STEP 02 -->
+<section class="step-section" style="background: var(--white);">
+    <div class="step-inner step-reverse">
+        <img src="images/haisai_step2_pro_advice_1781834202841.png" alt="プロから直接アドバイス！" class="step-image">
+        <div class="step-content">
+            <span style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--accent); font-weight: 700; letter-spacing: 2px;">STEP 02</span>
+            <h3 style="font-size: 2rem; color: var(--navy); font-weight: 900; margin-bottom: 20px;">プロから直接アドバイス！</h3>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">試合の合間に、本部にいる山口プロから直接フィードバック！<br>自分の課題をその場で改善しながら、すぐに次の試合で試すことができます。</p>
+        </div>
+    </div>
+</section>
+
+<!-- STEP 03 -->
+<section class="step-section" style="background: var(--grey-bg);">
+    <div class="step-inner">
+        <img src="images/haisai_step3_recovery_1781840967612.png" alt="疲れたら極上のリカバリー" class="step-image">
+        <div class="step-content">
+            <span style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--primary); font-weight: 700; letter-spacing: 2px;">STEP 03</span>
+            <h3 style="font-size: 2rem; color: var(--navy); font-weight: 900; margin-bottom: 20px;">疲れたら極上のリカバリー</h3>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">会場には常に「リカバリーラウンジ」がオープン。<br>専門家のマッサージやピラティスを受け、万全の状態で次の試合に復帰できます。</p>
+        </div>
+    </div>
+</section>
+
+<!-- STEP 04 -->
+<section class="step-section" style="background: var(--white);">
+    <div class="step-inner step-reverse">
+        <img src="images/haisai_step4_team_match_1781836138698.png" alt="午後は熱狂の団体戦！" class="step-image">
+        <div class="step-content">
+            <span style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--accent); font-weight: 700; letter-spacing: 2px;">STEP 04</span>
+            <h3 style="font-size: 2rem; color: var(--navy); font-weight: 900; margin-bottom: 20px;">午後は熱狂の団体戦！</h3>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">午後は参加者同士で即席チームを組み、全員で盛り上がる団体戦を実施！<br>決勝戦ではプロがベンチに入り、直接戦術をコーチングします。</p>
+        </div>
+    </div>
+</section>
+
+<!-- STEP 05 -->
+<section class="step-section" style="background: var(--grey-bg); border-bottom: 1px solid #eee;">
+    <div class="step-inner">
+        <img src="images/haisai_step5_pilates_1781858753274.png" alt="山口プロレッスン＆フィジカルセッション" class="step-image">
+        <div class="step-content">
+            <span style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--primary); font-weight: 700; letter-spacing: 2px;">STEP 05</span>
+            <h3 style="font-size: 2rem; color: var(--navy); font-weight: 900; margin-bottom: 20px;">山口プロレッスン＆フィジカルセッション</h3>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">テニスの他に、ピラティスや専門トレーニングを実施。<br>極上のリカバリー体験を提供します。</p>
+        </div>
+    </div>
+</section>
+
 <section id="pro-message" style="padding: 100px 0; background: var(--navy); color: white;">
     <div class="container" style="max-width: 1100px;">
         <div style="text-align: center; margin-bottom: 50px;">
@@ -803,7 +919,7 @@
             </div>
             <div class="timetable-row" style="display: flex; padding: 20px 0;">
                 <div class="timetable-time" style="font-family: 'Oswald', sans-serif; font-size: 1.2rem; color: var(--primary); width: 120px; font-weight: 700;">16:00 - 18:00</div>
-                <div style="flex: 1; font-weight: 700; color: var(--navy);">リカバリー＆フィジカルセッション<br><span style="font-size: 0.85rem; color: #888; font-weight: normal;">テニスの他に、ピラティスや専門トレーニングを実施。極上のリカバリー体験を提供します。</span></div>
+                <div style="flex: 1; font-weight: 700; color: var(--navy);">山口プロレッスン＆フィジカルセッション<br><span style="font-size: 0.85rem; color: #888; font-weight: normal;">テニスの他に、ピラティスや専門トレーニングを実施。極上のリカバリー体験を提供します。</span></div>
             </div>
             
             <div style="margin-top: 20px; padding: 20px; background: rgba(0, 178, 178, 0.05); border-left: 4px solid var(--primary); border-radius: 4px; font-size: 0.95rem; color: var(--navy); font-weight: 700;">
