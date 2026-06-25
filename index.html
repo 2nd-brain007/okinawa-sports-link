@@ -639,6 +639,95 @@
             }
         }
 
+        /* --- Responsive Breakpoints --- */
+        .pc-br { display: block; }
+        .sp-br { display: none; }
+        @media (max-width: 768px) {
+            .pc-br { display: none; }
+            .sp-br { display: block; }
+        }
+
+        /* --- Timeline (TIMETABLE) --- */
+        .timeline {
+            position: relative;
+            padding-left: 45px;
+            margin-top: 20px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 10px;
+            bottom: 30px;
+            width: 2px;
+            background: #e0e0e0;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -45px;
+            top: 5px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+        .timeline-dot::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        .timeline-time {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .timeline-content {
+            background: var(--grey-bg);
+            padding: 25px 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        .timeline-title {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+            font-weight: 700;
+        }
+
+        @media (max-width: 480px) {
+            .timeline { padding-left: 30px; }
+            .timeline::before { left: 7px; }
+            .timeline-dot { left: -30px; width: 16px; height: 16px; border-width: 2px; top: 8px; }
+            .timeline-dot::after { width: 6px; height: 6px; }
+            .timeline-content { padding: 20px; border-left-width: 3px; }
+            .timeline-time { font-size: 1.1rem; }
+            .timeline-title { font-size: 1.05rem; }
+            .timeline-desc { font-size: 0.85rem; }
+        }
+
         /* --- Footer --- */
         footer { padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.7rem; color: #aaa; }
     </style>
@@ -672,7 +761,7 @@
         </h1>
         <p class="hero-sub" style="font-weight: 900; letter-spacing: 5px; color: var(--primary); margin-bottom: 30px;">2026.07.26 [SUN] @ OKINAWA</p>
         <p style="max-width: 450px; font-size: 0.95rem; color: var(--navy); line-height: 1.8;">
-            沖縄から発信する、本物のプレミアムな非日常体験。<br>HAISAI CUP: Origin Story 第0期生 100名限定エントリー開始。
+            沖縄から発信する、本物のプレミアムな非日常体験。<br class="pc-br">HAISAI CUP: Origin Story 第0期生 100名限定エントリー開始。
         </p>
         <div style="margin-top: 40px;">
             <a href="entry.html" style="display: inline-block; padding: 20px 40px; background: var(--accent); color: white; text-decoration: none; font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 2px; font-size: 1.1rem; transition: transform 0.3s; border-radius: 4px;">エントリーはこちら</a>
@@ -688,8 +777,8 @@
         <h2 style="font-family: 'Oswald', sans-serif; font-size: 3rem; color: var(--navy); margin-bottom: 20px;">NOT JUST A TOURNAMENT.</h2>
         <div style="width: 60px; height: 3px; background: var(--accent); margin: 0 auto 40px;"></div>
         <p class="tournament-text" style="font-size: 1.1rem; line-height: 1.8; color: #555; font-weight: 700;">
-            負けたら終わりのトーナメントではありません。<br>
-            eスポーツのような熱狂、プロによる直接指導、そして極上のリカバリー空間。<br>
+            負けたら終わりのトーナメントではありません。<br class="pc-br">
+            eスポーツのような熱狂、プロによる直接指導、そして極上のリカバリー空間。<br class="pc-br">
             沖縄から発信する、全く新しい「プレミアム・テニスフェス」の始まりです。
         </p>
     </div>
@@ -747,7 +836,7 @@
         <span class="story-subtitle" style="color: var(--primary);">HOW IT WORKS</span>
         <h2 style="font-family: 'Noto Sans JP', sans-serif; font-size: 2.5rem; letter-spacing: -1px; color: var(--navy); margin-top: 10px; margin-bottom: 20px;">結局、当日はどうやって楽しむの？</h2>
         <div style="width: 60px; height: 3px; background: var(--accent); margin: 0 auto;"></div>
-        <p style="margin-top: 20px; font-size: 1.1rem; color: #666; font-weight: 700;">これまでの大会の常識を覆す、4つのシンプルなステップ</p>
+        <p style="margin-top: 20px; font-size: 1.1rem; color: #666; font-weight: 700;">これまでの大会の常識を覆す、5つのシンプルなステップ</p>
     </div>
 </section>
 
@@ -758,7 +847,7 @@
         <div class="step-content">
             <span style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--primary); font-weight: 700; letter-spacing: 2px;">STEP 01</span>
             <h3 style="font-size: 2rem; color: var(--navy); font-weight: 900; margin-bottom: 20px;">1日中テニスし放題！</h3>
-            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">「1回戦負け」は存在しません。<br>負けても勝っても、システムがすぐに次の対戦相手を自動マッチング。待ち時間なしでひたすら試合を楽しめます。（タイブレーク形式）</p>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">「1回戦負け」は存在しません。負けても勝っても、システムがすぐに次の対戦相手を自動マッチング。待ち時間なしでひたすら試合を楽しめます。（タイブレーク形式）</p>
         </div>
     </div>
 </section>
@@ -770,7 +859,7 @@
         <div class="step-content">
             <span style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--accent); font-weight: 700; letter-spacing: 2px;">STEP 02</span>
             <h3 style="font-size: 2rem; color: var(--navy); font-weight: 900; margin-bottom: 20px;">プロから直接アドバイス！</h3>
-            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">試合の合間に、本部にいる山口プロから直接フィードバック！<br>自分の課題をその場で改善しながら、すぐに次の試合で試すことができます。</p>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">試合の合間に、本部にいる山口プロから直接フィードバック！自分の課題をその場で改善しながら、すぐに次の試合で試すことができます。</p>
         </div>
     </div>
 </section>
@@ -782,7 +871,7 @@
         <div class="step-content">
             <span style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--primary); font-weight: 700; letter-spacing: 2px;">STEP 03</span>
             <h3 style="font-size: 2rem; color: var(--navy); font-weight: 900; margin-bottom: 20px;">疲れたら極上のリカバリー</h3>
-            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">会場には常に「リカバリーラウンジ」がオープン。<br>専門家のマッサージやピラティスを受け、万全の状態で次の試合に復帰できます。</p>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">会場には常に「リカバリーラウンジ」がオープン。専門家のマッサージやピラティスを受け、万全の状態で次の試合に復帰できます。</p>
         </div>
     </div>
 </section>
@@ -794,7 +883,7 @@
         <div class="step-content">
             <span style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--accent); font-weight: 700; letter-spacing: 2px;">STEP 04</span>
             <h3 style="font-size: 2rem; color: var(--navy); font-weight: 900; margin-bottom: 20px;">午後は熱狂の団体戦！</h3>
-            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">午後は参加者同士で即席チームを組み、全員で盛り上がる団体戦を実施！<br>決勝戦ではプロがベンチに入り、直接戦術をコーチングします。</p>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">午後は参加者同士で即席チームを組み、全員で盛り上がる団体戦を実施！決勝戦ではプロがベンチに入り、直接戦術をコーチングします。</p>
         </div>
     </div>
 </section>
@@ -806,7 +895,7 @@
         <div class="step-content">
             <span style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--primary); font-weight: 700; letter-spacing: 2px;">STEP 05</span>
             <h3 style="font-size: 2rem; color: var(--navy); font-weight: 900; margin-bottom: 20px;">山口プロレッスン＆フィジカルセッション</h3>
-            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">テニスの他に、ピラティスや専門トレーニングを実施。<br>極上のリカバリー体験を提供します。</p>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">テニスの他に、ピラティスや専門トレーニングを実施。極上のリカバリー体験を提供します。</p>
         </div>
     </div>
 </section>
@@ -905,25 +994,43 @@
         </div>
         
         <div class="timetable-box" style="background: var(--white); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 40px; margin-bottom: 80px;">
-            <div class="timetable-row" style="display: flex; padding: 20px 0; border-bottom: 1px solid #eee;">
-                <div class="timetable-time" style="font-family: 'Oswald', sans-serif; font-size: 1.2rem; color: var(--primary); width: 120px; font-weight: 700;">08:30</div>
-                <div style="flex: 1; font-weight: 700; color: var(--navy);">受付開始 & ウォーミングアップ<br><span style="font-size: 0.85rem; color: #888; font-weight: normal;">ウェルカムドリンク「Triple Water」をお渡しします。</span></div>
-            </div>
-            <div class="timetable-row" style="display: flex; padding: 20px 0; border-bottom: 1px solid #eee;">
-                <div class="timetable-time" style="font-family: 'Oswald', sans-serif; font-size: 1.2rem; color: var(--primary); width: 120px; font-weight: 700;">09:00 - 13:00</div>
-                <div style="flex: 1; font-weight: 700; color: var(--navy);">タイブレークマッチ（無限マッチング）<br><span style="font-size: 0.85rem; color: #888; font-weight: normal;">負けてもすぐに次の試合が組まれるシステム。終了後は本部で山口プロから直接フィードバック。</span></div>
-            </div>
-            <div class="timetable-row" style="display: flex; padding: 20px 0; border-bottom: 1px solid #eee;">
-                <div class="timetable-time" style="font-family: 'Oswald', sans-serif; font-size: 1.2rem; color: var(--primary); width: 120px; font-weight: 700;">13:00 - 16:00</div>
-                <div style="flex: 1; font-weight: 700; color: var(--navy);">熱狂のチーム対抗戦（団体戦）<br><span style="font-size: 0.85rem; color: #888; font-weight: normal;">即席のチームを組み団体戦。上位2チームの決勝では、プロが両軍のベンチコーチとして戦術を指示します。</span></div>
-            </div>
-            <div class="timetable-row" style="display: flex; padding: 20px 0;">
-                <div class="timetable-time" style="font-family: 'Oswald', sans-serif; font-size: 1.2rem; color: var(--primary); width: 120px; font-weight: 700;">16:00 - 18:00</div>
-                <div style="flex: 1; font-weight: 700; color: var(--navy);">山口プロレッスン＆フィジカルセッション<br><span style="font-size: 0.85rem; color: #888; font-weight: normal;">テニスの他に、ピラティスや専門トレーニングを実施。極上のリカバリー体験を提供します。</span></div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">08:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">受付開始 & ウォーミングアップ</div>
+                        <div class="timeline-desc">ウェルカムドリンク「Triple Water」をお渡しします。</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">09:00 - 13:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">タイブレークマッチ（無限マッチング）</div>
+                        <div class="timeline-desc">負けてもすぐに次の試合が組まれるシステム。終了後は本部で山口プロから直接フィードバック。</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">13:00 - 16:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">熱狂のチーム対抗戦（団体戦）</div>
+                        <div class="timeline-desc">即席のチームを組み団体戦。上位2チームの決勝では、プロが両軍のベンチコーチとして戦術を指示します。</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">16:00 - 18:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">山口プロレッスン＆フィジカルセッション</div>
+                        <div class="timeline-desc">テニスの他に、ピラティスや専門トレーニングを実施。極上のリカバリー体験を提供します。</div>
+                    </div>
+                </div>
             </div>
             
-            <div style="margin-top: 20px; padding: 20px; background: rgba(0, 178, 178, 0.05); border-left: 4px solid var(--primary); border-radius: 4px; font-size: 0.95rem; color: var(--navy); font-weight: 700;">
-                ★ 09:00〜18:00の大会期間中は常時「リカバリーラウンジ」がオープンしています。タイブレークマッチや団体戦の合間に、専門家によるマッサージを必ずご体験ください。
+            <div style="margin-top: 30px; padding: 25px; background: rgba(0, 178, 178, 0.05); border-left: 4px solid var(--accent); border-radius: 8px; font-size: 0.95rem; color: var(--navy); font-weight: 700; line-height: 1.7;">
+                <span style="color: var(--accent); font-size: 1.2rem; margin-right: 5px;">★</span>09:00〜18:00の大会期間中は常時「リカバリーラウンジ」がオープンしています。タイブレークマッチや団体戦の合間に、専門家によるマッサージを必ずご体験ください。
             </div>
         </div>
 
