@@ -188,27 +188,80 @@
             display: inline-block;
             margin-bottom: 15px;
         }
+        
+        .story-card {
+            position: relative;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            transition: all 0.4s ease;
+            margin-bottom: 40px;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .story-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(0, 178, 178, 0.1);
+            border-color: rgba(0, 178, 178, 0.2);
+        }
+        .story-card-number {
+            position: absolute;
+            top: -15px;
+            right: 10px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 8rem;
+            font-weight: 900;
+            color: rgba(0, 178, 178, 0.05);
+            z-index: -1;
+            line-height: 1;
+            pointer-events: none;
+            transition: color 0.4s ease;
+        }
+        .story-card:hover .story-card-number {
+            color: rgba(0, 178, 178, 0.1);
+        }
+        .story-card-title {
+            color: var(--primary);
+            font-size: 1.25rem;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .story-card-title::before {
+            content: "";
+            display: inline-block;
+            width: 30px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
         .story-right p {
-            font-size: 1rem;
-            color: var(--navy);
-            line-height: 1.8;
-            opacity: 0.95;
+            font-size: 1.05rem;
+            color: #444;
+            line-height: 1.9;
+            margin-bottom: 15px;
         }
         .story-right p strong {
             font-weight: 900;
-            color: var(--primary);
+            color: var(--accent);
+            background: linear-gradient(transparent 65%, rgba(255, 45, 85, 0.15) 65%);
         }
         .story-right blockquote {
-            border-left: 3px solid var(--accent);
-            padding-left: 20px;
-            margin: 15px 0;
+            border-left: 4px solid var(--accent);
+            padding: 25px 30px;
+            margin: 30px 0;
             font-size: 1.15rem;
-            font-weight: 700;
-            line-height: 1.6;
+            font-weight: 900;
+            line-height: 1.8;
             color: var(--navy);
+            background: rgba(255, 45, 85, 0.03);
+            border-radius: 0 8px 8px 0;
         }
-
-
 
         /* --- Approach Section --- */
         .section-approach {
@@ -674,7 +727,7 @@
             <a href="index.html" class="news-item" target="_blank">
                 <div class="news-date">2026.06.12</div>
                 <div class="news-category" style="background: var(--accent);">TOURNAMENT</div>
-                <div class="news-title">HAISAI CUP: Origin Story 第0期生（ファウンダー）100名限定エントリー開始！</div>
+                <div class="news-title">HAISAI CUP: エントリー受付開始！</div>
             </a>
             <a href="#" class="news-item">
                 <div class="news-date">2026.05.12</div>
@@ -699,8 +752,9 @@
                 <div style="width: 60px; height: 3px; background: var(--accent); margin-top: 30px;"></div>
             </div>
             <div class="story-right">
-                <div class="story-chunk">
-                    <h3 style="color: var(--primary); font-size: 1.1rem; font-family: 'Oswald', sans-serif; letter-spacing: 2px; margin-bottom: 10px;">01 / THE SILENT FINALS</h3>
+                <div class="story-card">
+                    <div class="story-card-number">01</div>
+                    <h3 class="story-card-title">THE SILENT FINALS</h3>
                     <p>
                         私たちがスポーツの現場で、ずっと胸を痛めていた光景があります。それは、トーナメントのクライマックスであるはずの<strong>「決勝戦」</strong>の舞台です。<br>
                         朝から熱く戦ってきたはずの会場は、一日の終わりと共に静まり返り、敗退した選手たちはすでに帰路についている。ガラガラの観客席と、寂しげな静寂の中で行われる最後の戦い。
@@ -713,20 +767,22 @@
                     </p>
                 </div>
 
-                <div class="story-chunk" style="margin-top: 40px;">
-                    <h3 style="color: var(--primary); font-size: 1.1rem; font-family: 'Oswald', sans-serif; letter-spacing: 2px; margin-bottom: 10px;">02 / THE ECOSYSTEM</h3>
+                <div class="story-card">
+                    <div class="story-card-number">02</div>
+                    <h3 class="story-card-title">THE ECOSYSTEM</h3>
                     <p>
                         負けた後も「最後まで見届けたい」「あの空間に一緒にいたい」と全員が思える、温かいコミュニティの結びつき（Link）。
                     </p>
                     <p>
-                        そのために私たちが導入するのが、<strong>独自の「プレイヤーID」と「公式ランキングシステム（XPシステム）」</strong>です。<br>
-                        勝っても負けても試合ごとに経験値が貯まり、自分の成長が可視化される。同じレベルの仲間と無限に試合ができ、新しい出会いが絶え間なく生まれる「全く新しいテニス・エコシステム（生態系）」を創り出します。<br>
+                        そのために私たちが導入するのが、敗退という概念をなくす<strong>「無限マッチングシステム」</strong>と、熱狂を共有する<strong>「プロとの共創空間」</strong>です。<br>
+                        同じレベルの仲間と無限に試合ができ、新しい出会いが絶え間なく生まれる「全く新しいテニス・エコシステム（生態系）」を創り出します。<br>
                         <strong>「1回戦で負けて、15分で帰宅する」</strong>というテニス界の哀しい常識は、私たちが終わらせます。
                     </p>
                 </div>
 
-                <div class="story-chunk" style="margin-top: 40px;">
-                    <h3 style="color: var(--primary); font-size: 1.1rem; font-family: 'Oswald', sans-serif; letter-spacing: 2px; margin-bottom: 10px;">03 / OUR MISSION</h3>
+                <div class="story-card">
+                    <div class="story-card-number">03</div>
+                    <h3 class="story-card-title">OUR MISSION</h3>
                     <p>
                         その強い想いから、<strong>Okinawa Sports Link（OSL）</strong>は誕生しました。<br>
                         沖縄というローカルの温かさと強みを活かし、人と人の結びつき（Link）をテクノロジーの力でより滑らかに、より強固に支える。
@@ -1119,23 +1175,23 @@
         <div class="grid-flow">
             <div class="flow-card">
                 <div class="flow-step">Step 01</div>
-                <h4>プレイヤー登録</h4>
-                <p>HTAオンラインフォームから簡単登録。あなただけの公式プレイヤーID（デジタルIDカード）が即時発行されます。</p>
+                <h4>オンライン・エントリー</h4>
+                <p>ハイサイカップなどの対象イベントへ、スマホから簡単エントリー。Tallyを用いたスマートな決済で手続きは瞬時に完了します。</p>
             </div>
             <div class="flow-card">
                 <div class="flow-step">Step 02</div>
-                <h4>イベントへのエントリー</h4>
-                <p>ハイサイカップなどの対象イベントへエントリー。Tallyを用いたスマートな決済（Stripe/Square）で手続きは瞬時に完了します。</p>
+                <h4>マッチメイク ＆ ストーリー</h4>
+                <p>参加者のレベルや背景を分析し、最適なマッチメイクを実施。因縁やライバル関係など、試合が始まる前からストーリーを構築します。</p>
             </div>
             <div class="flow-card">
                 <div class="flow-step">Step 03</div>
                 <h4>現場チェックイン & プレイ</h4>
-                <p>大会当日は、発行されたIDカードを提示してスムーズにチェックイン。登録列に並ぶことなく、試合に100%没頭できます。</p>
+                <p>大会当日はスマホでスマートに受付。無駄な待ち時間を極限まで減らし、100%試合と応援に没頭できる環境を提供します。</p>
             </div>
             <div class="flow-card">
                 <div class="flow-step">Step 04</div>
-                <h4>ランキング反映 & 繋がり</h4>
-                <p>試合結果はシステムへ即時反映され、公式ランキングが更新。仲間たちとデータや思い出を共有し、新しい「繋がり」が広がります。</p>
+                <h4>次なるステージへ（コミュニティ）</h4>
+                <p>試合後はOSLコミュニティへ参加。レベルに合った練習会への参加や次回の大会への挑戦など、あなたのテニスライフは終わりません。</p>
             </div>
         </div>
         <div class="scroll-guide">
@@ -1145,12 +1201,74 @@
     </div>
 </section>
 
+<!-- ==============================================
+     THE MAIN ROAD (ULTIMATE GOAL & ECOSYSTEM)
+     ============================================== -->
+<section style="padding: 100px 0 50px; background: var(--white); text-align: center;">
+    <div class="container" style="max-width: 800px;">
+        <span class="story-subtitle">OUR ULTIMATE GOAL</span>
+        <h2 style="font-family: 'Oswald', sans-serif; font-size: 3rem; color: var(--navy); margin-bottom: 20px; text-transform: uppercase;">The Main Road</h2>
+        <div style="width: 60px; height: 3px; background: var(--primary); margin: 0 auto 40px;"></div>
+        <p style="font-size: 1.15rem; line-height: 1.9; color: var(--navy); font-weight: 700; margin-bottom: 20px;">
+            OSLが目指す最終到達点は、<br class="pc-br">
+            <span style="color: var(--accent); font-size: 1.3rem;">「プロ・一般・ジュニアが完全に入り混じる、賞金付きの超大型タイブレークマッチ」</span><br class="pc-br">
+            の開催です。
+        </p>
+        <p style="font-size: 1rem; line-height: 1.8; color: #555;">
+            これまでのフェーズ（タイブレマッチや無料指導教室）はすべて、この最終目標に向けたファン作りと資金調達、そして認知度向上のためのステップです。沖縄を「プロとアマチュアが同じコートで熱狂し、夢を掴むスポーツの聖地」にするため、私たちはインフラとなるエコシステムを構築します。
+        </p>
+    </div>
+</section>
+
+<section style="padding: 50px 0 100px; background: var(--white);">
+    <div class="container" style="max-width: 900px;">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <span class="story-subtitle" style="color: var(--accent);">THE OSL ECOSYSTEM</span>
+            <h2 style="font-family: 'Noto Sans JP', sans-serif; font-size: 2.5rem; letter-spacing: -1px; color: var(--navy); margin-top: 10px;">価値と資金の循環モデル</h2>
+        </div>
+        
+        <div style="background: var(--grey-bg); padding: 40px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border: 1px solid #eee;">
+            <p style="text-align: center; font-size: 1.05rem; line-height: 1.8; color: var(--navy); font-weight: 700; margin-bottom: 40px;">
+                私たちがパートナー企業様に求めるのは、単なるイベント協賛ではありません。<br>
+                「地域・プロ・企業が豊かになる循環システム（エコシステム）」への投資です。
+            </p>
+            <div style="width: 100%; overflow-x: auto; text-align: center;">
+                <div class="mermaid" style="font-family: 'Noto Sans JP', sans-serif;">
+                    flowchart TD
+                        A[パートナー企業] -->|資金支援| B(OSL: 沖縄スポーツリンク)
+                        B -->|渡航費・宿泊費・報酬| C[プロアスリート]
+                        C -->|無償のテニス教室・指導| D[地域・学生・スクール生]
+                        D -->|認知向上・熱狂・ファン化| E[OSL主催の大型イベント/フェス]
+                        C -->|ゲスト参加・エキシビション| E
+                        E -->|圧倒的集客・ブランディング還元| A
+                        E -->|他業種とのコラボ| E
+                        
+                        style A fill:#00B2B2,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold
+                        style B fill:#111111,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold
+                        style C fill:#FF2D55,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold
+                        style D fill:#ffffff,stroke:#00B2B2,stroke-width:2px,color:#111111,font-weight:bold
+                        style E fill:#ffffff,stroke:#FF2D55,stroke-width:2px,color:#111111,font-weight:bold
+                </div>
+            </div>
+            <div style="margin-top: 40px; border-top: 1px solid #ddd; padding-top: 30px;">
+                <ul style="list-style-type: none; padding: 0; margin: 0; color: #555; font-size: 0.95rem; line-height: 1.8;">
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--primary);">① 資金の支援:</strong> パートナー企業様からOSLへご支援をいただきます。</li>
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--primary);">② プロの招聘:</strong> その資金で、県外のプロアスリートの渡航費・宿泊費・報酬を担保し、沖縄へ招聘します。</li>
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--primary);">③ 無償の指導:</strong> 招聘したプロが、沖縄の学生やスクール生に「無料指導」を行い、圧倒的な刺激を与えます。</li>
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--primary);">④ 熱狂のフェス:</strong> 指導を受けたファンが、プロも参加する「他業種混合フェス」に大挙して押し寄せます。</li>
+                    <li><strong style="color: var(--primary);">⑤ 企業への還元:</strong> 熱狂的な集客と認知度向上の結果が、パートナー企業様のブランディングとして最大化され還元されます。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="section-approach" id="partnership" style="background: var(--navy); color: white;">
     <div class="container">
         <div class="approach-header">
             <span class="story-subtitle" style="color: var(--primary);">PARTNERSHIP</span>
             <h2 class="approach-title" style="font-family: 'Oswald', sans-serif; font-size: 3rem; color: white;">SPONSORSHIP TO PARTNERSHIP</h2>
-            <p style="margin-top: 20px; font-size: 1.1rem; opacity: 0.8; max-width: 800px; margin-left: auto; margin-right: auto;">私たちは、単なる「お金の出し手（スポンサー）」ではなく、共に沖縄から全国へスポーツ文化を創り上げる「第0期生（パートナー）」を募集しています。</p>
+            <p style="margin-top: 20px; font-size: 1.1rem; opacity: 0.8; max-width: 800px; margin-left: auto; margin-right: auto;">私たちは、単なる「お金の出し手（スポンサー）」ではなく、共に沖縄から全国へスポーツ文化を創り上げる「共創パートナー」を募集しています。</p>
         </div>
         <div class="grid-approach">
             <div class="approach-card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white;">
@@ -1228,11 +1346,14 @@
     </div>
 </footer>
 
+<!-- Mermaid.js -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>
+    mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { fontFamily: "'Noto Sans JP', sans-serif" } });
     window.addEventListener('load', () => {
         setTimeout(() => {
             document.body.classList.add('loaded');
-        }, 1500);
+        }, 1000);
     });
 </script>
 
