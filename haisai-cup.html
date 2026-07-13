@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAISAI CUP: Origin Story</title>
+    <!-- SEO & OGP Settings -->
+    <meta name="description" content="沖縄からテニス界の常識を壊すプレミアム大会『HAISAI CUP』。1回戦負けの絶望を終わらせる「無限マッチング」と「極上のリカバリー」を提供する全く新しいテニスフェス、100名限定エントリー受付中。">
+    <meta property="og:title" content="HAISAI CUP: Origin Story">
+    <meta property="og:description" content="沖縄からテニスの常識を壊す。「負けたら終わり」をなくす無限マッチングと極上のリカバリーを提供するプレミアム大会。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://2nd-brain007.github.io/okinawa-sports-link/haisai-cup/">
+    <meta property="og:image" content="https://2nd-brain007.github.io/okinawa-sports-link/haisai-cup/ogp-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Oswald:wght@700&family=Noto+Sans+JP:wght@300;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00B2B2;
+            --accent: #FF2D55;
+            --navy: #111111;
+            --white: #FFFFFF;
+            --grey-bg: #F8F9FA;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--white);
+            color: var(--navy);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* --- Loading Screen --- */
+        #loader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #00B2B2 0%, #003366 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 1.2s;
+        }
+        .loaded #loader { opacity: 0; visibility: hidden; }
+
+        /* --- Header --- */
+        header {
+            padding: 25px 60px;
+            background: var(--white);
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 900; letter-spacing: 3px; font-size: 1.1rem; }
+        nav a { color: var(--navy); text-decoration: none; margin-left: 30px; font-size: 0.8rem; font-weight: 900; }
+
+        /* --- Hero: Split Layout --- */
+        .hero {
+            position: relative;
+            height: 90vh;
+            display: flex;
+            background: var(--white);
+            overflow: hidden;
+        }
+
+        .hero-left {
+            width: 45%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 100px;
+            z-index: 10;
+            background: var(--white);
+        }
+
+        .hero-right {
+            width: 55%;
+            height: 100%;
+            position: relative;
+            clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            background: url('okinawa_tropical_resort_vibe_1778646693311.png') no-repeat center/cover;
+            transition: transform 10s ease-out;
+        }
+        .hero:hover .hero-img { transform: scale(1.1); }
+
+        .hero-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 8rem;
+            line-height: 0.85;
+            color: var(--navy);
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+        .hero-title span { display: block; -webkit-text-stroke: 1px var(--navy); color: transparent; }
+
+        /* --- News Ticker --- */
+        .news-ticker {
+            background: var(--navy);
+            color: var(--white);
+            padding: 12px 0;
+            overflow: hidden;
+            display: flex;
+        }
+        .ticker-track { display: flex; animation: ticker 30s linear infinite; }
+        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .ticker-item { margin-right: 50px; font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
+
+        /* --- Projects --- */
+        .section-projects { padding: 120px 0; background: var(--grey-bg); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .news-card { background: var(--white); border-radius: 4px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .card-body { padding: 30px; }
+        .card-tag { display: inline-block; background: var(--primary); color: white; padding: 3px 10px; font-size: 0.65rem; font-weight: 900; margin-bottom: 15px; }
+        .card-title { font-size: 1.2rem; font-weight: 900; margin-bottom: 15px; }
+
+        /* --- Story Section --- */
+        .section-story {
+            padding: 120px 0;
+            background: var(--white);
+            border-bottom: 1px solid #eee;
+        }
+        .story-inner {
+            display: flex;
+            gap: 80px;
+        }
+        .story-left {
+            width: 40%;
+        }
+        .story-right {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .story-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .story-subtitle {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: 3px;
+        }
+        .story-right p {
+            font-size: 1rem;
+            color: var(--navy);
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        .story-right p strong {
+            font-weight: 900;
+            color: var(--primary);
+        }
+        .story-right blockquote {
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+            margin: 15px 0;
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.6;
+            color: var(--navy);
+        }
+
+
+
+        /* --- Approach Section --- */
+        .section-approach {
+            padding: 120px 0;
+            background: var(--grey-bg);
+            border-bottom: 1px solid #eee;
+        }
+        .approach-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        .approach-header h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-top: 20px;
+        }
+        .grid-approach {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .approach-card {
+            background: var(--white);
+            border-radius: 4px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+        }
+        .approach-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+        .approach-num {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        .approach-card h4 {
+            font-size: 1.25rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: var(--navy);
+        }
+        .approach-card p {
+            font-size: 0.95rem;
+            color: var(--navy);
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+
+        /* --- Scroll Guide --- */
+        .scroll-guide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 60px;
+            text-align: center;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        .scroll-guide:hover { opacity: 0.9; }
+        .scroll-guide-text {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 15px;
+        }
+        .scroll-guide-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(180deg, var(--primary) 0%, transparent 100%);
+        }
+
+        /* --- Flow Section --- */
+        .section-flow {
+            padding: 120px 0;
+            background: var(--white);
+            border-bottom: 1px solid #eee;
+        }
+        .flow-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        .flow-header h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-top: 20px;
+        }
+        .grid-flow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .flow-card {
+            background: var(--white);
+            border-radius: 4px;
+            padding: 35px 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+        }
+        .flow-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+        .flow-step {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .flow-card h4 {
+            font-size: 1.15rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: var(--navy);
+        }
+        .flow-card p {
+            font-size: 0.9rem;
+            color: var(--navy);
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        /* --- FAQ Section --- */
+        .section-faq {
+            padding: 120px 0;
+            background: var(--grey-bg);
+            border-bottom: 1px solid #eee;
+        }
+        .faq-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        .faq-header h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-top: 20px;
+        }
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .faq-item {
+            background: var(--white);
+            border-radius: 4px;
+            padding: 35px 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid #eee;
+        }
+        .faq-q {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 15px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        .faq-q::before {
+            content: "Q";
+            color: var(--primary);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .faq-a {
+            font-size: 0.95rem;
+            color: var(--navy);
+            line-height: 1.7;
+            opacity: 0.8;
+            padding-left: 30px;
+            position: relative;
+        }
+        .faq-a::before {
+            content: "A";
+            position: absolute;
+            left: 0; top: 0;
+            color: var(--accent);
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+        }
+
+
+
+        /* --- Gallery Section --- */
+        .section-gallery {
+            padding: 120px 0;
+            background: var(--white);
+            border-bottom: 1px solid #eee;
+        }
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        .gallery-header h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-top: 20px;
+        }
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            height: 280px;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: all 0.3s;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(10%) brightness(90%);
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+            filter: grayscale(0%) brightness(100%);
+        }
+
+        /* --- Premium Experience Blocks --- */
+        .premium-feature-card {
+            background: var(--white);
+            padding: 50px 60px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+            border-left: 6px solid var(--primary);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+        .premium-feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+        .premium-feature-subtitle {
+            font-family: 'Oswald', sans-serif;
+            color: var(--primary);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: block;
+            font-weight: 700;
+        }
+        .premium-feature-title {
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+        .premium-feature-desc {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* --- Responsive Styles (Mobile & Tablet) --- */
+        @media (max-width: 1024px) {
+            header { padding: 20px 30px; }
+            .logo { font-size: 1rem; }
+            nav a { margin-left: 15px; font-size: 0.75rem; }
+
+            .hero { height: auto; flex-direction: column; }
+            .hero-left { width: 100%; padding: 80px 40px 40px; text-align: center; align-items: center; }
+            .hero-right { width: 100%; height: 400px; clip-path: none; }
+            .hero-title { font-size: 4.5rem; text-align: center; }
+
+            .projects-grid { grid-template-columns: 1fr; gap: 30px; }
+            .grid-approach { grid-template-columns: 1fr; gap: 30px; }
+            .grid-flow { grid-template-columns: 1fr; gap: 30px; }
+            .grid-gallery { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .gallery-item { height: 200px; }
+
+            .story-inner { flex-direction: column; gap: 40px; }
+            .story-left, .story-right { width: 100%; }
+            .story-title { font-size: 2.5rem; }
+
+            .section-projects, .section-story, .section-approach, .section-flow, .section-faq, .section-gallery {
+                padding: 80px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Header */
+            .header-inner {
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+            }
+            .logo {
+                font-size: 0.85rem;
+                letter-spacing: 1.5px;
+                white-space: nowrap;
+            }
+            nav a {
+                margin-left: 15px;
+                font-size: 0.65rem;
+            }
+            nav a:first-child {
+                margin-left: 0;
+            }
+
+            /* Hero */
+            .hero-left { padding: 60px 20px 35px; }
+            .hero-title { font-size: clamp(2.3rem, 10vw, 3rem); line-height: 1.0; }
+            .hero-right { height: 280px; }
+            .hero-sub {
+                font-size: 0.75rem !important;
+                letter-spacing: 2px !important;
+                white-space: nowrap;
+            }
+            .hero-left p:not(.hero-sub) {
+                font-size: 0.92rem !important;
+                line-height: 1.8 !important;
+                color: #444 !important;
+            }
+
+            /* Global Typography & Spacing */
+            .section-projects, .section-story, .section-approach, .section-flow, .section-faq, .section-gallery {
+                padding: 60px 0;
+            }
+            section {
+                padding-top: 60px !important;
+                padding-bottom: 60px !important;
+            }
+            section h2 {
+                font-size: clamp(1.6rem, 7vw, 2.2rem) !important;
+                line-height: 1.3 !important;
+                letter-spacing: -0.5px !important;
+            }
+            .story-title, .approach-header h2, .flow-header h2, .faq-header h2, .gallery-header h2 {
+                font-size: clamp(1.6rem, 7vw, 2.2rem) !important;
+                line-height: 1.3 !important;
+                letter-spacing: -0.5px !important;
+            }
+            .premium-feature-card {
+                padding: 30px 20px !important;
+            }
+            .premium-feature-title {
+                font-size: 1.4rem !important;
+            }
+            .premium-feature-desc {
+                font-size: 0.95rem !important;
+            }
+            .timetable-box, .event-box {
+                padding: 20px !important;
+            }
+            .timetable-row {
+                flex-direction: column !important;
+                gap: 5px !important;
+            }
+            .timetable-time {
+                width: 100% !important;
+            }
+
+            /* Story Section */
+            .story-right p {
+                font-size: 0.92rem !important;
+                line-height: 1.85 !important;
+                color: #333 !important;
+            }
+            .founder-text, .tournament-text {
+                font-size: 0.92rem !important;
+                line-height: 1.8 !important;
+            }
+            .founder-highlight {
+                padding: 15px !important;
+            }
+            .story-right blockquote {
+                font-size: 1.05rem !important;
+                line-height: 1.7 !important;
+                margin: 20px 0 !important;
+            }
+
+            /* Approach Section */
+            .approach-card {
+                padding: 30px 20px !important;
+            }
+            .approach-card h4 {
+                font-size: 1.15rem !important;
+            }
+            .approach-card p {
+                font-size: 0.88rem !important;
+                line-height: 1.75 !important;
+                color: #555 !important;
+            }
+
+            /* Flow Section */
+            .flow-card {
+                padding: 30px 20px !important;
+            }
+            .flow-card h4 {
+                font-size: 1.1rem !important;
+            }
+            .flow-card p {
+                font-size: 0.88rem !important;
+                line-height: 1.75 !important;
+                color: #555 !important;
+            }
+
+            /* FAQ Section */
+            .container { padding: 0 20px; }
+            .faq-item { padding: 25px 20px; }
+            .faq-q {
+                font-size: 1.05rem !important;
+                line-height: 1.4 !important;
+            }
+            .faq-a {
+                font-size: 0.9rem !important;
+                line-height: 1.75 !important;
+                padding-left: 20px !important;
+                color: #444 !important;
+            }
+
+            /* Loader */
+            #loader div:first-child {
+                font-size: 0.8rem !important;
+                letter-spacing: 3px !important;
+                white-space: nowrap !important;
+            }
+        }
+
+        /* --- Responsive Breakpoints --- */
+        .pc-br { display: block; }
+        .sp-br { display: none; }
+        @media (max-width: 768px) {
+            .pc-br { display: none; }
+            .sp-br { display: block; }
+        }
+
+        /* --- Timeline (TIMETABLE) --- */
+        .timeline {
+            position: relative;
+            padding-left: 45px;
+            margin-top: 20px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 10px;
+            bottom: 30px;
+            width: 2px;
+            background: #e0e0e0;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -45px;
+            top: 5px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+        .timeline-dot::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        .timeline-time {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .timeline-content {
+            background: var(--grey-bg);
+            padding: 25px 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        .timeline-title {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+            font-weight: 700;
+        }
+
+        @media (max-width: 480px) {
+            .timeline { padding-left: 30px; }
+            .timeline::before { left: 7px; }
+            .timeline-dot { left: -30px; width: 16px; height: 16px; border-width: 2px; top: 8px; }
+            .timeline-dot::after { width: 6px; height: 6px; }
+            .timeline-content { padding: 20px; border-left-width: 3px; }
+            .timeline-time { font-size: 1.1rem; }
+            .timeline-title { font-size: 1.05rem; }
+            .timeline-desc { font-size: 0.85rem; }
+        }
+
+        /* --- Footer --- */
+        footer { padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.7rem; color: #aaa; }
+    </style>
+</head>
+<body class="loading">
+
+<div id="loader">
+    <div style="color: white; font-weight: 900; letter-spacing: 6px; font-size: 1.1rem; margin-bottom: 20px; white-space: nowrap; text-align: center; max-width: 90vw;">HAISAI CUP</div>
+    <div style="width: 100px; height: 1px; background: var(--primary);"></div>
+</div>
+
+<header>
+    <div class="container">
+        <div class="header-inner">
+            <div class="logo">HAISAI CUP</div>
+            <nav>
+                <a href="index.html" style="color: var(--primary); font-weight: 900;">← OSL PORTAL</a>
+                <a href="#experience">EXPERIENCE</a>
+                <a href="#plans">PLANS</a>
+                <a href="entry.html" style="background: var(--accent); color: white; padding: 8px 20px; border-radius: 4px; transition: transform 0.3s; box-shadow: 0 4px 15px rgba(255, 45, 85, 0.3);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">エントリー</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-left">
+        <h1 class="hero-title" style="font-size: 5.5rem;">
+            <span>ORIGIN</span>
+            STORY
+        </h1>
+        <p class="hero-sub" style="font-weight: 900; letter-spacing: 5px; color: var(--primary); margin-bottom: 30px;">2026.07.26 [SUN] @ OKINAWA</p>
+        <p style="max-width: 450px; font-size: 0.95rem; color: var(--navy); line-height: 1.8;">
+            沖縄から発信する、本物のプレミアムな非日常体験。<br class="pc-br">HAISAI CUP: Origin Story 先着100名限定エントリー開始。
+        </p>
+        <div style="margin-top: 40px;">
+            <a href="entry.html" style="display: inline-block; padding: 20px 40px; background: var(--accent); color: white; text-decoration: none; font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 2px; font-size: 1.1rem; transition: transform 0.3s; border-radius: 4px;">エントリーはこちら</a>
+        </div>
+    </div>
+    <div class="hero-right">
+        <div class="hero-img"></div>
+    </div>
+</section>
+
+<section style="padding: 100px 0; background: var(--grey-bg); text-align: center;">
+    <div class="container" style="max-width: 800px;">
+        <h2 style="font-family: 'Oswald', sans-serif; font-size: 3rem; color: var(--navy); margin-bottom: 20px;">NOT JUST A TOURNAMENT.</h2>
+        <div style="width: 60px; height: 3px; background: var(--accent); margin: 0 auto 40px;"></div>
+        <p class="tournament-text" style="font-size: 1.1rem; line-height: 1.8; color: #555; font-weight: 700;">
+            負けたら終わりのトーナメントではありません。<br class="pc-br">
+            eスポーツのような熱狂、プロによる直接指導、そして極上のリカバリー空間。<br class="pc-br">
+            沖縄から発信する、全く新しい「プレミアム・テニスフェス」の始まりです。
+        </p>
+    </div>
+</section>
+
+<style>
+    .step-section {
+        padding: 80px 0;
+        border-top: 1px solid #eee;
+    }
+    .step-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        padding: 0 40px;
+    }
+    .step-image {
+        width: 320px;
+        height: 320px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        flex-shrink: 0;
+    }
+    .step-content {
+        flex: 1;
+    }
+    .step-reverse {
+        flex-direction: row-reverse;
+        text-align: right;
+    }
+    @media (max-width: 768px) {
+        .step-inner {
+            flex-direction: column !important;
+            text-align: center !important;
+            gap: 30px;
+            padding: 0 20px;
+        }
+        .step-image {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1;
+        }
+        .step-content {
+            text-align: center !important;
+        }
+    }
+</style>
+
+<!-- Intro for How It Works -->
+<section style="padding: 100px 0 50px; background: var(--white);">
+    <div class="container" style="max-width: 800px; text-align: center;">
+        <span class="story-subtitle" style="color: var(--primary);">HOW IT WORKS</span>
+        <h2 style="font-family: 'Noto Sans JP', sans-serif; font-size: 2.5rem; letter-spacing: -1px; color: var(--navy); margin-top: 10px; margin-bottom: 20px;">結局、当日はどうやって楽しむの？</h2>
+        <div style="width: 60px; height: 3px; background: var(--accent); margin: 0 auto;"></div>
+        <p style="margin-top: 20px; font-size: 1.1rem; color: #666; font-weight: 700;">これまでの大会の常識を覆す、5つのシンプルなステップ</p>
+    </div>
+</section>
+
+<!-- STEP 01 -->
+<section class="step-section" style="background: var(--grey-bg);">
+    <div class="step-inner">
+        <img src="images/haisai_step1_endless_tennis_1781834179564.png" alt="1日中テニスし放題！" class="step-image">
+        <div class="step-content">
+            <span style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--primary); font-weight: 700; letter-spacing: 2px;">STEP 01</span>
+            <h3 style="font-size: 2rem; color: var(--navy); font-weight: 900; margin-bottom: 20px;">1日中テニスし放題！</h3>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">「1回戦負け」は存在しません。負けても勝っても、システムがすぐに次の対戦相手を自動マッチング。待ち時間なしでひたすら試合を楽しめます。（タイブレーク形式）</p>
+        </div>
+    </div>
+</section>
+
+<!-- STEP 02 -->
+<section class="step-section" style="background: var(--white);">
+    <div class="step-inner step-reverse">
+        <img src="images/haisai_step2_pro_advice_1781834202841.png" alt="プロから直接アドバイス！" class="step-image">
+        <div class="step-content">
+            <span style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--accent); font-weight: 700; letter-spacing: 2px;">STEP 02</span>
+            <h3 style="font-size: 2rem; color: var(--navy); font-weight: 900; margin-bottom: 20px;">プロから直接アドバイス！</h3>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">試合の合間に、本部にいる山口プロから直接フィードバック！自分の課題をその場で改善しながら、すぐに次の試合で試すことができます。</p>
+        </div>
+    </div>
+</section>
+
+<!-- STEP 03 -->
+<section class="step-section" style="background: var(--grey-bg);">
+    <div class="step-inner">
+        <img src="images/haisai_step3_recovery_1781840967612.png" alt="疲れたら極上のリカバリー" class="step-image">
+        <div class="step-content">
+            <span style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--primary); font-weight: 700; letter-spacing: 2px;">STEP 03</span>
+            <h3 style="font-size: 2rem; color: var(--navy); font-weight: 900; margin-bottom: 20px;">疲れたら極上のリカバリー</h3>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">会場には常に「リカバリーラウンジ」がオープン。専門家のマッサージやピラティスを受け、万全の状態で次の試合に復帰できます。</p>
+        </div>
+    </div>
+</section>
+
+<!-- STEP 04 -->
+<section class="step-section" style="background: var(--white);">
+    <div class="step-inner step-reverse">
+        <img src="images/haisai_step4_team_match_1781836138698.png" alt="午後は熱狂の団体戦！" class="step-image">
+        <div class="step-content">
+            <span style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--accent); font-weight: 700; letter-spacing: 2px;">STEP 04</span>
+            <h3 style="font-size: 2rem; color: var(--navy); font-weight: 900; margin-bottom: 20px;">午後は熱狂の団体戦！</h3>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">午後は参加者同士で即席チームを組み、全員で盛り上がる団体戦を実施！決勝戦ではプロがベンチに入り、直接戦術をコーチングします。</p>
+        </div>
+    </div>
+</section>
+
+<!-- STEP 05 -->
+<section class="step-section" style="background: var(--grey-bg); border-bottom: 1px solid #eee;">
+    <div class="step-inner">
+        <img src="images/haisai_step5_pilates_1781858753274.png" alt="山口プロレッスン＆フィジカルセッション" class="step-image">
+        <div class="step-content">
+            <span style="font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--primary); font-weight: 700; letter-spacing: 2px;">STEP 05</span>
+            <h3 style="font-size: 2rem; color: var(--navy); font-weight: 900; margin-bottom: 20px;">山口プロレッスン＆フィジカルセッション</h3>
+            <p style="font-size: 1.1rem; color: #555; line-height: 1.8; font-weight: 700;">テニスの他に、ピラティスや専門トレーニングを実施。極上のリカバリー体験を提供します。</p>
+        </div>
+    </div>
+</section>
+
+<section id="pro-message" style="padding: 100px 0; background: var(--navy); color: white;">
+    <div class="container" style="max-width: 1100px;">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <span class="story-subtitle" style="color: var(--primary);">SPECIAL GUEST</span>
+            <h2 style="font-family: 'Noto Sans JP', sans-serif; font-size: 2.5rem; letter-spacing: -1px; margin-bottom: 20px;">山口柚希プロからのメッセージ</h2>
+            <div style="width: 60px; height: 3px; background: var(--accent); margin: 0 auto;"></div>
+        </div>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+            <div style="flex: 1 1 400px; text-align: left; background: rgba(255,255,255,0.05); padding: 40px; border-radius: 8px; border-left: 4px solid var(--primary);">
+                <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">皆様はじめまして！山口柚希です！</p>
+                <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">私は現在テニス選手として競技に挑戦しながら、テニスを通じて人とのつながりや新しい価値を生み出す活動を行っています。これまで全日本学生王座で2度の日本一を経験し、インカレベスト4などの実績を積んできました。</p>
+                <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">競技だけでなく、イベントやレッスン、企業とのパートナーシップを通じて、テニスの魅力をより多くの方へ届けることを目指しています。「挑戦すること」「感謝を忘れないこと」「人とのつながりを大切にすること」を信念に、日々成長を続けています。</p>
+                <p style="font-size: 1.1rem; line-height: 1.8; font-weight: 700; color: var(--primary); margin: 0;">応援してくださる皆さまへの感謝を胸に、皆様のテニス人生にとっていい刺激になるよう頑張ります！</p>
+            </div>
+            <div style="flex: 1 1 400px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <img src="images/yamaguchi_pro_1.jpg" alt="Yamaguchi Pro 1" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                <img src="images/yamaguchi_pro_2.jpg" alt="Yamaguchi Pro 2" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                <img src="images/yamaguchi_pro_3.jpg" alt="Yamaguchi Pro 3" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                <img src="images/yamaguchi_pro_4.jpg" alt="Yamaguchi Pro 4" style="width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="padding: 100px 0; background: var(--white); text-align: center;">
+    <div class="container" style="max-width: 800px;">
+        <span class="story-subtitle">0TH GEN PRIVILEGE</span>
+        <h2 style="font-family: 'Oswald', sans-serif; font-size: 3rem; color: var(--navy); margin-bottom: 20px;">第0期生（ファウンダー）の特権</h2>
+        <div style="width: 60px; height: 3px; background: var(--primary); margin: 0 auto 40px;"></div>
+        <div class="founder-text" style="font-size: 1.05rem; line-height: 1.9; color: #444; text-align: left;">
+            <p style="margin-bottom: 20px;">本大会「HAISAI CUP: Origin Story」は、私たち Okinawa Sports Link (OSL) が創り出す「全く新しいテニス・エコシステム（生態系）」の第1章となる大会です。</p>
+            
+            <p style="margin-bottom: 20px;">まだ誰も見たことのないこの伝説の始まりに、リスクを取って飛び込んでくれる最初の100名を、私たちは最大限の敬意を込めて<strong>「第0期生（ファウンダー）」</strong>と呼びます。</p>
+            
+            <div class="founder-highlight" style="background: rgba(0, 178, 178, 0.05); border-left: 4px solid var(--primary); padding: 20px; border-radius: 4px; margin-top: 30px;">
+                <strong style="color: var(--accent);">第0期生としてエントリーされた皆様には、OSLへの初期貢献の証として、来年以降システムに導入されるOSL年間登録料（通常1,000〜2,000円）を【永久無料】とする特権を付与します。</strong>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px; padding-top: 40px; border-top: 1px solid #eee; display: flex; flex-direction: column; align-items: center; gap: 25px;">
+                <a href="entry.html" style="display: inline-block; padding: 20px 40px; background: var(--accent); color: white; text-decoration: none; font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 2px; font-size: 1.1rem; transition: transform 0.3s; border-radius: 4px; box-shadow: 0 4px 15px rgba(255, 75, 75, 0.3);">第0期生としてエントリーする</a>
+                <div>
+                    <p style="font-size: 0.85rem; color: #888; margin-bottom: 10px;">「1回戦負け」の常識を壊す、OSLの壮大なビジョンとは？</p>
+                    <a href="https://2nd-brain007.github.io/okinawa-sports-link/" target="_blank" style="display: inline-block; padding: 12px 25px; background: transparent; border: 1px solid var(--navy); color: var(--navy); text-decoration: none; font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; border-radius: 4px; transition: all 0.3s;">READ OSL VISION →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="experience" style="background: var(--grey-bg); padding-bottom: 100px;">
+    <div style="text-align: center; padding: 100px 0 60px;">
+        <span class="story-subtitle">THE 3 PREMIUM EXPERIENCES</span>
+        <h2 class="approach-title" style="font-family: 'Noto Sans JP', sans-serif; font-size: 2.5rem; letter-spacing: -1px; color: var(--navy);">本物の非日常を味わう、3つの熱狂体験。</h2>
+    </div>
+
+    <div class="container" style="max-width: 900px; display: flex; flex-direction: column; gap: 40px;">
+        <!-- Feature 01 -->
+        <div class="premium-feature-card">
+            <span class="premium-feature-subtitle">FEATURE 01 : ENDLESS MATCHING</span>
+            <h3 class="premium-feature-title">「負けたら終わり」の常識を破壊する。</h3>
+            <p class="premium-feature-desc">無限マッチング・システム『The Queue』。負けても即座に次の相手とコートへ。1日10〜15試合のタイブレークマッチを確約する、eスポーツのような圧倒的な回転率で、あなたの経験値を強制的に引き上げます。</p>
+        </div>
+
+        <!-- Feature 02 -->
+        <div class="premium-feature-card" style="border-left-color: var(--accent);">
+            <span class="premium-feature-subtitle" style="color: var(--accent);">FEATURE 02 : SPECIAL GUEST</span>
+            <h3 class="premium-feature-title">プロの頭脳を、あなたのベンチに。</h3>
+            <p class="premium-feature-desc">ただプロが来るだけではありません。山口柚希プロが本部で常時フィードバックを行うだけでなく、熱狂の団体戦・決勝ではプロが直接あなたのチームの「ベンチコーチ」として入り、勝つための戦術（勝負脳）を直接注入します。</p>
+        </div>
+
+        <!-- Feature 03 -->
+        <div class="premium-feature-card" style="border-left-color: var(--navy);">
+            <span class="premium-feature-subtitle" style="color: var(--navy);">FEATURE 03 : RECOVERY LOUNGE</span>
+            <h3 class="premium-feature-title">極上の回復が、次の勝利を創る。</h3>
+            <p class="premium-feature-desc">大会期間中、常に併設される「リカバリーラウンジ」。ウェルカムドリンク『Triple Water』で脳と身体を潤し、専門家によるマッサージとピラティス・セッションをいつでも受けられます。試合の合間の「極上の回復」が、次の勝利を引き出します。</p>
+        </div>
+    </div>
+    
+    <div class="scroll-guide" style="padding: 60px 0; background: var(--white);">
+        <div class="scroll-guide-text">TIMETABLE & OUTLINE</div>
+        <div class="scroll-guide-line"></div>
+    </div>
+</section>
+
+<section style="padding: 100px 0; background: var(--grey-bg);">
+    <div class="container" style="max-width: 800px;">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <span class="story-subtitle">SCHEDULE</span>
+            <h2 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: var(--navy);">TIMETABLE</h2>
+            <div style="width: 40px; height: 3px; background: var(--primary); margin: 15px auto 0;"></div>
+        </div>
+        
+        <div class="timetable-box" style="background: var(--white); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 40px; margin-bottom: 80px;">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">08:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">受付開始 & ウォーミングアップ</div>
+                        <div class="timeline-desc">ウェルカムドリンク「Triple Water」をお渡しします。</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">09:00 - 13:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">タイブレークマッチ（無限マッチング）</div>
+                        <div class="timeline-desc">負けてもすぐに次の試合が組まれるシステム。終了後は本部で山口プロから直接フィードバック。</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">13:00 - 16:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">熱狂のチーム対抗戦（団体戦）</div>
+                        <div class="timeline-desc">即席のチームを組み団体戦。上位2チームの決勝では、プロが両軍のベンチコーチとして戦術を指示します。</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-time">16:00 - 18:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">山口プロレッスン＆フィジカルセッション</div>
+                        <div class="timeline-desc">テニスの他に、ピラティスや専門トレーニングを実施。極上のリカバリー体験を提供します。</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 25px; background: rgba(0, 178, 178, 0.05); border-left: 4px solid var(--accent); border-radius: 8px; font-size: 0.95rem; color: var(--navy); font-weight: 700; line-height: 1.7;">
+                <span style="color: var(--accent); font-size: 1.2rem; margin-right: 5px;">★</span>09:00〜18:00の大会期間中は常時「リカバリーラウンジ」がオープンしています。タイブレークマッチや団体戦の合間に、専門家によるマッサージを必ずご体験ください。
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 50px;">
+            <span class="story-subtitle">INFORMATION</span>
+            <h2 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: var(--navy);">EVENT OUTLINE</h2>
+            <div style="width: 40px; height: 3px; background: var(--primary); margin: 15px auto 0;"></div>
+        </div>
+
+        <div class="event-box" style="background: var(--white); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 40px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+                <tr>
+                    <td style="padding: 15px 0; border-bottom: 1px solid #eee; width: 30%; font-weight: 700; color: var(--navy);">大会名称</td>
+                    <td style="padding: 15px 0; border-bottom: 1px solid #eee; color: #555;">HAISAI CUP: Origin Story（ハイサイカップ）</td>
+                </tr>
+                <tr>
+                    <td style="padding: 15px 0; border-bottom: 1px solid #eee; font-weight: 700; color: var(--navy);">開催日時</td>
+                    <td style="padding: 15px 0; border-bottom: 1px solid #eee; color: #555;">2026年7月26日（日） 09:00 - 18:00</td>
+                </tr>
+                <tr>
+                    <td style="padding: 15px 0; border-bottom: 1px solid #eee; font-weight: 700; color: var(--navy);">開催場所</td>
+                    <td style="padding: 15px 0; border-bottom: 1px solid #eee; color: #555;">沖縄県総合運動公園（県総）テニスコート 9〜12番</td>
+                </tr>
+                <tr>
+                    <td style="padding: 15px 0; border-bottom: 1px solid #eee; font-weight: 700; color: var(--navy);">定員</td>
+                    <td style="padding: 15px 0; border-bottom: 1px solid #eee; color: #555;"><strong style="color: var(--accent);">先着100名限定</strong></td>
+                </tr>
+                <tr>
+                    <td style="padding: 15px 0; font-weight: 700; color: var(--navy);">特別ゲスト</td>
+                    <td style="padding: 15px 0; color: #555;">山口柚希 プロ</td>
+                </tr>
+            </table>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="entry.html" style="display: inline-block; padding: 18px 40px; background: var(--accent); color: white; text-decoration: none; font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 2px; font-size: 1.1rem; transition: transform 0.3s; border-radius: 4px;">エントリーはこちら</a>
+        </div>
+        
+        <div class="scroll-guide" style="margin-top: 80px;">
+            <div class="scroll-guide-text">PREMIUM PLANS</div>
+            <div class="scroll-guide-line"></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-approach" id="plans">
+    <div class="container">
+        <div class="approach-header">
+            <span class="story-subtitle">PREMIUM PLANS</span>
+            <h2 class="approach-title" style="font-family: 'Noto Sans JP', sans-serif; font-size: 2.5rem; letter-spacing: -1px;">あなたに合わせた3つの参加プラン。</h2>
+        </div>
+        <div class="grid-approach">
+            <div class="approach-card">
+                <div class="approach-num" style="color: var(--navy); opacity: 1;">¥6,000</div>
+                <h4>タイブレーク＆団体戦</h4>
+                <p style="margin-bottom: 10px;">✓ 無限マッチング参加権</p>
+                <p style="margin-bottom: 10px;">✓ チーム対抗戦エントリー</p>
+                <p>✓ 本部プロフィードバック</p>
+            </div>
+            <div class="approach-card">
+                <div class="approach-num" style="color: var(--navy); opacity: 1;">¥8,000</div>
+                <h4>プロレッスン＆ピラティス</h4>
+                <p style="margin-bottom: 10px;">✓ 山口プロによる特別レッスン</p>
+                <p style="margin-bottom: 10px;">✓ ピラティス/トレーニング参加権</p>
+                <p>✓ リカバリーラウンジ利用</p>
+            </div>
+            <div class="approach-card" style="border-color: var(--primary); transform: scale(1.05); box-shadow: 0 10px 40px rgba(0, 178, 178, 0.2);">
+                <div style="background: var(--primary); color: white; font-size: 0.75rem; font-weight: 900; padding: 4px 12px; display: inline-block; margin-bottom: 20px; border-radius: 4px; font-family: 'Oswald', sans-serif; letter-spacing: 1px;">RECOMMENDED</div>
+                <div class="approach-num" style="color: var(--primary); opacity: 1;">¥10,000</div>
+                <h4>フルパッケージ</h4>
+                <p style="margin-bottom: 10px;">✓ 試合・レッスン両方に参加可能</p>
+                <p style="margin-bottom: 10px;">✓ 特別Vlog撮影優先参加</p>
+                <p>✓ シークレット特典</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==============================================
+     THE MAIN ROAD (ULTIMATE GOAL & ECOSYSTEM)
+     ============================================== -->
+<section style="padding: 100px 0 50px; background: var(--white); text-align: center;">
+    <div class="container" style="max-width: 800px;">
+        <span class="story-subtitle">OUR ULTIMATE GOAL</span>
+        <h2 style="font-family: 'Oswald', sans-serif; font-size: 3rem; color: var(--navy); margin-bottom: 20px; text-transform: uppercase;">The Main Road</h2>
+        <div style="width: 60px; height: 3px; background: var(--primary); margin: 0 auto 40px;"></div>
+        <p style="font-size: 1.15rem; line-height: 1.9; color: var(--navy); font-weight: 700; margin-bottom: 20px;">
+            OSLが目指す最終到達点は、<br class="pc-br">
+            <span style="color: var(--accent); font-size: 1.3rem;">「プロ・一般・ジュニアが完全に入り混じる、賞金付きの超大型タイブレークマッチ」</span><br class="pc-br">
+            の開催です。
+        </p>
+        <p style="font-size: 1rem; line-height: 1.8; color: #555;">
+            これまでのフェーズ（タイブレマッチや無料指導教室）はすべて、この最終目標に向けたファン作りと資金調達、そして認知度向上のためのステップです。沖縄を「プロとアマチュアが同じコートで熱狂し、夢を掴むスポーツの聖地」にするため、私たちはインフラとなるエコシステムを構築します。
+        </p>
+    </div>
+</section>
+
+<section style="padding: 50px 0 100px; background: var(--white);">
+    <div class="container" style="max-width: 900px;">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <span class="story-subtitle" style="color: var(--accent);">THE OSL ECOSYSTEM</span>
+            <h2 style="font-family: 'Noto Sans JP', sans-serif; font-size: 2.5rem; letter-spacing: -1px; color: var(--navy); margin-top: 10px;">価値と資金の循環モデル</h2>
+        </div>
+        
+        <div style="background: var(--grey-bg); padding: 40px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border: 1px solid #eee;">
+            <p style="text-align: center; font-size: 1.05rem; line-height: 1.8; color: var(--navy); font-weight: 700; margin-bottom: 40px;">
+                私たちがパートナー企業様に求めるのは、単なるイベント協賛ではありません。<br>
+                「地域・プロ・企業が豊かになる循環システム（エコシステム）」への投資です。
+            </p>
+            <div style="width: 100%; overflow-x: auto; text-align: center;">
+                <div class="mermaid" style="font-family: 'Noto Sans JP', sans-serif;">
+                    flowchart TD
+                        A[パートナー企業] -->|資金支援| B(OSL: 沖縄スポーツリンク)
+                        B -->|渡航費・宿泊費・報酬| C[プロアスリート]
+                        C -->|無償のテニス教室・指導| D[地域・学生・スクール生]
+                        D -->|認知向上・熱狂・ファン化| E[OSL主催の大型イベント/フェス]
+                        C -->|ゲスト参加・エキシビション| E
+                        E -->|圧倒的集客・ブランディング還元| A
+                        E -->|他業種とのコラボ| E
+                        
+                        style A fill:#00B2B2,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold
+                        style B fill:#111111,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold
+                        style C fill:#FF2D55,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold
+                        style D fill:#ffffff,stroke:#00B2B2,stroke-width:2px,color:#111111,font-weight:bold
+                        style E fill:#ffffff,stroke:#FF2D55,stroke-width:2px,color:#111111,font-weight:bold
+                </div>
+            </div>
+            <div style="margin-top: 40px; border-top: 1px solid #ddd; padding-top: 30px;">
+                <ul style="list-style-type: none; padding: 0; margin: 0; color: #555; font-size: 0.95rem; line-height: 1.8;">
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--primary);">① 資金の支援:</strong> パートナー企業様からOSLへご支援をいただきます。</li>
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--primary);">② プロの招聘:</strong> その資金で、県外のプロアスリートの渡航費・宿泊費・報酬を担保し、沖縄へ招聘します。</li>
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--primary);">③ 無償の指導:</strong> 招聘したプロが、沖縄の学生やスクール生に「無料指導」を行い、圧倒的な刺激を与えます。</li>
+                    <li style="margin-bottom: 10px;"><strong style="color: var(--primary);">④ 熱狂のフェス:</strong> 指導を受けたファンが、プロも参加する「他業種混合フェス」に大挙して押し寄せます。</li>
+                    <li><strong style="color: var(--primary);">⑤ 企業への還元:</strong> 熱狂的な集客と認知度向上の結果が、パートナー企業様のブランディングとして最大化され還元されます。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-approach" id="partnership" style="background: var(--navy); color: white;">
+    <div class="container">
+        <div class="approach-header">
+            <span class="story-subtitle" style="color: var(--primary);">PARTNERSHIP</span>
+            <h2 class="approach-title" style="font-family: 'Oswald', sans-serif; font-size: 3rem; color: white;">SPONSORSHIP TO PARTNERSHIP</h2>
+            <p style="margin-top: 20px; font-size: 1.1rem; opacity: 0.8; max-width: 800px; margin-left: auto; margin-right: auto;">私たちは、単なる「お金の出し手（スポンサー）」ではなく、共に沖縄から全国へスポーツ文化を創り上げる「共創パートナー」を募集しています。</p>
+        </div>
+        <div class="grid-approach">
+            <div class="approach-card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white;">
+                <div class="approach-num" style="color: #CD7F32; opacity: 1;">¥100k+</div>
+                <h4 style="color: white; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">🥉 Bronze Partner</h4>
+                <p style="margin-top: 15px; margin-bottom: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.9);">✓ 会場バナー掲出</p>
+                <p style="margin-bottom: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.9);">✓ YouTube概要欄への掲載</p>
+                <p style="margin-bottom: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.9);">✓ SNSでのパートナー紹介</p>
+                <p style="font-size: 0.9rem; color: rgba(255,255,255,0.9);">✓ 限定パートナー交流会ご招待</p>
+            </div>
+            <div class="approach-card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white;">
+                <div class="approach-num" style="color: #C0C0C0; opacity: 1;">¥500k+</div>
+                <h4 style="color: white; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">🥈 Silver Partner</h4>
+                <p style="margin-top: 15px; margin-bottom: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.9);">✓ 会場大型バナー掲出</p>
+                <p style="margin-bottom: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.9);">✓ YouTube動画内ロゴ掲載</p>
+                <p style="margin-bottom: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.9);">✓ VIP席ご招待 / SNS紹介</p>
+                <p style="margin-bottom: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.9);">✓ 社員向けイベント参加権</p>
+                <p style="font-size: 0.9rem; color: rgba(255,255,255,0.9);">✓ 普及活動でのロゴ掲載</p>
+            </div>
+            <div class="approach-card" style="background: rgba(255, 215, 0, 0.05); border: 1px solid #FFD700; transform: scale(1.05); color: white; box-shadow: 0 10px 40px rgba(255, 215, 0, 0.1);">
+                <div style="background: #FFD700; color: var(--navy); font-size: 0.75rem; font-weight: 900; padding: 4px 12px; display: inline-block; margin-bottom: 20px; border-radius: 4px; font-family: 'Oswald', sans-serif; letter-spacing: 1px;">CROWN PARTNER</div>
+                <div class="approach-num" style="color: #FFD700; opacity: 1;">¥1M+</div>
+                <h4 style="color: white; border-bottom: 1px solid rgba(255,215,0,0.3); padding-bottom: 10px;">🥇 Gold Partner</h4>
+                <p style="margin-top: 15px; margin-bottom: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.9);">✓ 大会メインパートナー権（冠）</p>
+                <p style="margin-bottom: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.9);">✓ 特大バナー / VIP席(10名)</p>
+                <p style="margin-bottom: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.9);">✓ 企業向け体験会開催権(年2回)</p>
+                <p style="margin-bottom: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.9);">✓ 表彰式登壇・プレゼンター権</p>
+                <p style="font-size: 0.9rem; color: rgba(255,255,255,0.9);">✓ YouTube動画内プロモーション</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 60px;">
+            <p style="font-size: 0.95rem; opacity: 0.7; margin-bottom: 20px;">詳細な投資枠やリターンについては企画書（PDF）をご用意しております。</p>
+            <a href="mailto:info@okinawasportslink.com" style="display: inline-block; padding: 18px 40px; background: transparent; border: 2px solid var(--primary); color: white; text-decoration: none; font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 2px; font-size: 1.1rem; transition: all 0.3s; border-radius: 4px;">パートナーシップ資料を請求する</a>
+        </div>
+    </div>
+</section>
+
+<footer style="background: var(--navy); color: white; border-top: none;">
+    <div class="container">
+        <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 8px; max-width: 800px; margin: 0 auto 60px; border: 1px solid rgba(0, 178, 178, 0.3);">
+            <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.8rem; color: var(--primary); margin-bottom: 15px;">FOUNDER PRIVILEGE</h3>
+            <p style="font-size: 1rem; line-height: 1.8; font-weight: 700;">
+                今回エントリーいただいた初期100名は「ファウンダー（初期メンバー）」として正式登録されます。<br>
+                ファウンダーには、来年以降導入予定のOSL年間登録料が【永久無料】になる特別な特権が付与されます。伝説の始まりを目撃してください。
+            </p>
+        </div>
+        <h2 style="font-family: 'Oswald', sans-serif; font-size: 3rem; margin-bottom: 40px; text-transform: uppercase;">Ready to Join?</h2>
+        <a href="entry.html" style="display: inline-block; padding: 20px 60px; background: var(--accent); color: white; text-decoration: none; font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 2px; font-size: 1.2rem; transition: transform 0.3s; border-radius: 4px; margin-bottom: 60px;">エントリーはこちら</a>
+        
+        <!-- SNS Icons -->
+        <div style="margin-bottom: 30px; display: flex; justify-content: center; gap: 30px;">
+            <a href="https://www.instagram.com/okinawa_sports_link/" target="_blank" style="color: white; opacity: 0.8; display: inline-block; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='1'" onmouseout="this.style.transform='scale(1)'; this.style.opacity='0.8'" aria-label="Instagram">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm3.98-10.822a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://x.com/osl_okinawa" target="_blank" style="color: white; opacity: 0.8; display: inline-block; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='1'" onmouseout="this.style.transform='scale(1)'; this.style.opacity='0.8'" aria-label="X (Twitter)">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@okinawasportslink" target="_blank" style="color: white; opacity: 0.8; display: inline-block; transition: all 0.3s;" onmouseover="this.style.transform='scale(1.2)'; this.style.opacity='1'" onmouseout="this.style.transform='scale(1)'; this.style.opacity='0.8'" aria-label="YouTube">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+        </div>
+
+        <div style="margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="#" style="color: #888; text-decoration: none; font-size: 0.75rem; font-weight: 700;">HTA会員規約</a>
+            <span style="color: #444;">|</span>
+            <a href="#" style="color: #888; text-decoration: none; font-size: 0.75rem; font-weight: 700;">特定商取引法に基づく表記</a>
+            <span style="color: #444;">|</span>
+            <a href="#" style="color: #888; text-decoration: none; font-size: 0.75rem; font-weight: 700;">プライバシーポリシー</a>
+        </div>
+        <p style="color: #666;">&copy; 2026 OKINAWA SPORTS LINK. ALL RIGHTS RESERVED.</p>
+    </div>
+</footer>
+
+<!-- Mermaid.js -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+    mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { fontFamily: "'Noto Sans JP', sans-serif" } });
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+        }, 1000);
+    });
+</script>
+
+</body>
+</html>
